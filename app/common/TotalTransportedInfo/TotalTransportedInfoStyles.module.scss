@@ -1,0 +1,39 @@
+@import '../../../styles/variables.module.scss';
+
+.totalTransportedInfo {
+    .totalTransported {
+      @include setTextStyles(6px, $white, 20px, 500);
+      margin-right: 10px;
+      @media (max-width: 1640px) {
+        font-size: 16px;
+      }
+      @media (max-width: 940px) {
+        font-size: 14px;
+      }
+      @media (max-width: 745px) {
+        margin-top: -4px;
+      }
+    }
+    .totalTransportedCount {
+      @include setTextStyles(19px, $greenColor, 40px, 800);
+      text-transform: uppercase;
+      @media (max-width: 1640px) {
+        margin-top: 13px;
+      }
+      @media (max-width: 940px) {
+        margin-top: 11px;
+      }
+      @media (max-width: 745px) {
+        margin-top: 12px;
+        font-size: 34px;
+      }
+    }
+    .entered {
+      @include setTextStyles(-5px, $greenColor, 10px, 600);
+      text-transform: uppercase;
+    }
+    .noDataTryAgain {
+      @include setTextStyles(5px, $greenColor, 10px, 600);
+      margin-right: 15px;
+    }
+  }

@@ -1,0 +1,20 @@
+@import '../../styles/variables.module.scss';
+
+.main {
+  margin: auto;
+  padding: 0 10px;
+  .authInstructions {
+    @include setTextStyles(30.5px, $white, 16px, 500);
+    text-align: center;
+  }
+
+  .techSupport {
+    @include setTextStyles(50px, $white, 16px, 500);
+    text-align: center;
+  }
+
+  .supportPhoneNum {
+    @include setTextStyles(22px, $white, 19px, 600);
+    text-align: center;
+  }
+}

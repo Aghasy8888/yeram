@@ -1,0 +1,51 @@
+@import '../../../../styles/variables.module.scss';
+
+.detailsModal {
+  @include setWidthHeight(168px, 129px);
+  background: $lighterBlue;
+  padding: 18px;
+  position: absolute;
+  top: 69px;
+  left: -34px;
+  z-index: 1000;
+  @media (max-width: 1400px) {
+    @include setWidthHeight(118px, 90.5px);
+    padding: 12px;
+    left: -20px;
+  }
+  @media (max-width: 940px) {
+    @include setWidthHeight(96px, 91px);
+    left: -31px;
+  }
+  .detailsButtonGroup {
+    button {
+      @include setWidthHeight(100%, 36.6px);
+      @include setFontSizeAndWeight(14px, 500);
+      @include textShadow;
+      border: 1px solid $white;
+      color: $white;
+      text-align: center;
+      @media (max-width: 1400px) {
+        font-size: 11px;
+        height: 25.7px;
+      }
+    }
+    .turnOff {
+      margin-top: 18.3px;
+      @media (max-width: 1400px) {
+        margin-top: 12px;
+      }
+    }
+  }
+}
+
+.detailsModal.fromNotConnected {
+  top: 30px;
+  left: -16px;
+  @media (max-width: 1400px) {
+    left: -23px;
+  }
+  @media (max-width: 940px) {
+    left: -15px;
+  }
+}

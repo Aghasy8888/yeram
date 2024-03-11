@@ -1,0 +1,18 @@
+import { useAppSelector } from '@/store/store';
+import { PHONE_NUMBER } from '@/data/stepConstants';
+
+import styles from './TechSupportStyles.module.scss';
+
+const TechSupport = () => {
+  const user: IUserInfo = useAppSelector((state) => state.authReducer.userInfo);
+  return (
+    <>
+      <h4 className={styles.techSupport}>Тех. поддержка:</h4>
+      <a className={styles.supportPhoneNumber} href={`tel:${PHONE_NUMBER}`}>
+        {PHONE_NUMBER}
+      </a>
+    </>
+  );
+};
+
+export default TechSupport;

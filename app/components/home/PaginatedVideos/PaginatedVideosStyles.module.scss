@@ -1,0 +1,81 @@
+@import '../../../../styles/variables.module.scss';
+
+.modalContainer {
+    @include modalContainerStyles;
+    @media (max-width: 690px) {
+      @include flexCenter;
+    }
+    .modalCustom {
+      @include modalCustomStyles(50%, 50%);
+      .videoPlayModal {
+        @include actualModalStyles(533px);
+        height: 445px;
+        min-width: 200px;
+        min-height: 200px;
+        @media (max-width: 690px) {
+          width: 340px;
+        }
+        @media (max-width: 345px) {
+          width: 318px;
+        }
+        .closeXBtn {
+          position: absolute;
+          top: 15px;
+          right: 10px;
+          cursor: pointer;
+          z-index: 1000;
+        }
+        .pagination {
+            @include flexCenter;
+            margin-top: 10px;
+        }
+        .videosCtn {
+            position: relative;
+            padding: 41px 45px 0 45px;
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            column-gap: 38px;
+            row-gap: 32px;
+            overflow-y: scroll;
+            height: 386px;
+            @media (max-width: 690px) {
+              padding: 30px 46px 12px 46px;
+              justify-content: center;
+              row-gap: 30px;
+              height: 395px;
+            }            
+            @include scrollStyles;
+            .loading {
+                text-align: center;
+                font-size: large;
+                margin: auto;
+            }
+            .noVideos {
+              color: $white;
+            }
+            .video {
+              position: relative;
+              display: inline-block;
+              max-height: 150px;
+              .carNumber {
+                @include setTextStyles(10px, $white, 16px, 500);
+              }
+              .dateInfo {
+                @include setTextStyles(4px, $borderColor, 12px, 500);
+                max-width: 130px;
+              }
+              .downloadBtn {
+                position: absolute;
+                bottom: 18px;
+                right: 0;
+                cursor: pointer;
+              }
+            }
+          }
+          
+      }
+    }
+  }
+  
+

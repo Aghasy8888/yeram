@@ -1,0 +1,13 @@
+.downArrow {
+  position: absolute;
+  right: 9px;
+  top: 8px;
+  @media (max-width: 940px) {
+    right: 5px;
+    top: 5px;
+  }
+  @media (max-width: 690px) {
+    right: 13px;
+    top: 2px;
+  }
+}

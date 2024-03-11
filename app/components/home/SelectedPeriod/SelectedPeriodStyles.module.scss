@@ -1,0 +1,86 @@
+@import '../../../../styles/variables.module.scss';
+
+.selectedPeriod {
+  margin-right: 10px;
+  @media (max-width: 1640px) {
+    margin-right: 0;
+  }
+  @media (max-width: 690px) {
+    @include flexCenterDirColumn;
+  }
+  .selectedPeriodTitle {
+    @include setTextStyles(10px, $white, 14px, 400);
+    text-align: center;
+    @media (max-width: 940px) {
+      margin-top: 20px;
+    }
+    @media (max-width: 690px) {
+      margin-top: 30px;
+    }
+  }
+  .IconsAndDateCtn {
+    position: relative;
+    display: flex;
+    gap: 15px;
+    margin-top: 10px;
+    color: white;
+    @media (max-width: 940px) {
+      justify-content: center;
+    }
+    @media (max-width: 690px) {
+      margin-top: 6px;
+      max-width: 248px;
+      flex-wrap: wrap;
+      justify-content: center;
+      row-gap: 13px;
+      column-gap: 30px;
+    }
+    .datePicker {
+      position: relative;
+      button {
+        position: absolute;
+      }
+      button.clockBtn {
+        padding: 0 5px;
+        font-size: 14px;
+        @include setWidthHeight(40px, 20px);
+        border-radius: 3px;
+        border: 1px solid $white;
+        left: 7px;
+        top: 5px;
+      }
+      button.dateBtn {
+        @include setWidthHeight(200px, 30px);
+        @include flexCenter;
+        color: $white;
+        @include setFontSizeAndWeight(16px, 400);
+        top: 0px;
+        right: 3px;
+      }
+    }
+    .downloadIcon {
+      position: relative;
+    }
+    .iconBtn {
+      &:nth-child(4) {
+        // display: none;
+        order: 3;
+      }
+      &:nth-child(3) {
+        display: none;        
+        order: 4;
+        margin-left: 4px;
+      }
+      &:nth-child(2) {
+        @media (max-width: 690px) {
+          order: 2;
+        }
+      }
+      &:nth-child(1) {
+        @media (max-width: 690px) {
+          order: 1;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+@import '../../../../styles/variables.module.scss';
+
+.steps {
+  margin-top: 24px;
+  color: white;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    .form {
+      display: flex;
+      gap: 10px;
+      label {
+        cursor: pointer;
+        width: 55px;
+        height: 25px;
+        border: 1px solid $borderColor;
+        color: $white;
+        @include textShadow;
+        @include setFontSizeAndWeight(12px, 500);
+        @include flexCenter;
+      }
+      input[type='radio'] {
+        display: none;
+      }
+      input[type='radio']:checked + label {
+        color: $greenColor;
+        border: 1px solid $greenColor;
+      }
+      input[type='radio']:disabled + label {
+        color: gray;
+        border: 1px solid gray;
+      }
+    }
+    .stepTitle {
+      @include flexCenter;
+      @include setFontSizeAndWeight(14px, 400);
+      color: $white;
+    }
+  }
+}

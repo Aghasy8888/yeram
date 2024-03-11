@@ -1,0 +1,114 @@
+@import '../../../../styles/variables.module.scss';
+
+.infoTable {
+  overflow: hidden;
+  color: white;
+  .container {
+    margin-right: 260px;
+    @media (max-width: 1640px) {
+      margin-right: 0;
+      margin-left: 20px;
+    }
+    @media (max-width: 745px) {
+      margin-left: 0;
+    }
+
+    .gosNumbersDataCtn {
+      overflow-x: scroll;
+      width: 100%;
+      &::-webkit-scrollbar {
+        height: 8px;
+      }
+
+      &::-webkit-scrollbar-track {
+        margin-block: 50px;
+        border-radius: 10px;
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.121) 0%,
+          rgba(255, 255, 255, 0.121) 12%
+        );
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $purple;
+        border-radius: 10px;
+      }
+    }
+
+    .gosNumbersAndCtn {
+      display: flex;
+      .firstColumn {
+        @include firstColumnStyles;
+        display: flex;
+        align-items: center;
+        border-right: none;
+        height: 46px;
+      }
+      .gosNumbersCtn {
+        hr {
+          border: none;
+          height: 1px;
+          background-color: $borderColor;
+        }
+      }
+      .gosNumbersDataCtn {
+        overflow-x: scroll;
+        width: 100%;
+        &::-webkit-scrollbar {
+          height: 8px;
+        }
+
+        &::-webkit-scrollbar-track {
+          margin-block: 50px;
+          border-radius: 10px;
+          background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.121) 0%,
+            rgba(255, 255, 255, 0.121) 12%
+          );
+        }
+
+        &::-webkit-scrollbar-thumb {
+          background-color: $purple;
+          border-radius: 10px;
+        }
+      }
+    }
+
+    .table {
+      border-collapse: collapse;
+      width: 100%;
+      .headerId {
+        display: none;
+      }
+      .firstColumnPeriod {
+        @include firstColumnStyles;
+        padding: 0;
+      }
+      .columnPeriod {
+        @include columnStyles;
+        font-size: 9px;
+        color: $white;
+        padding: 5px 0 5px 0;
+        .date {
+          margin-top: 5px;
+          padding-top: 5px;
+          border-top: 1px solid $borderColor;
+          position: relative;
+        }
+        .date,
+        .hoursPeriod {
+          text-align: center;
+        }
+      }
+      .columnPeriod.columnPeriod12Px {
+        font-size: 12px;
+      }
+      .column {
+        @include columnStyles;
+        height: 46px;
+      }
+    }
+  }
+}

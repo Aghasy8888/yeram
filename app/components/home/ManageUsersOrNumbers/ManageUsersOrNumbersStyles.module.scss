@@ -1,0 +1,27 @@
+@import '../../../../styles/variables.module.scss';
+
+.management {
+  .radioButtonsCtn {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    label {
+      @include setFontSizeAndWeight(14px, 500);
+      @include setWidthHeight(218px, 30px);
+      @include textShadow;
+      cursor: pointer;
+      color: $white;
+      @include flexCenter;
+    }
+    input[type='radio'] {
+      display: none;
+    }
+    input[type='radio'] + label {
+      border: 1px solid $white;
+    }
+    input[type='radio']:checked + label {
+      color: $greenColor;
+      border: 1px solid $greenColor;
+    }
+  }
+}

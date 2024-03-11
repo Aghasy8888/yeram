@@ -1,0 +1,60 @@
+@import '../../../styles/variables.module.scss';
+
+.dropdownCtn {
+  position: relative;
+  @include flexCenter;
+  justify-content: flex-start;
+  padding-left: 14.73px;
+  border: 1px solid $white;
+  color: $white;
+  @include setFontSizeAndWeight(14px, 500);
+  @include setWidthHeight(96.603px, 36.545px);
+  cursor: pointer;
+  @media (max-width: 940px) {
+    @include setWidthHeight(80px, 31px);
+    padding-left: 5.7px;
+  }
+  @media (max-width: 690px) {
+    @include setWidthHeight(96.6px, 25px);
+    padding-left: 5.7px;
+  }
+  .downArrow {
+    position: absolute;
+    right: 9px;
+    top: 8px;
+    @media (max-width: 940px) {
+      right: 5px;
+      top: 5px;
+    }
+    @media (max-width: 690px) {
+      right: 13px;
+      top: 2px;
+    }
+  }
+  .dropdownHeader {
+    @include flexCenter;
+  }
+  .dropdownOptions {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 11px;
+    padding: 8px 10px 13px 10px;
+    background-color: $lighterBlue;
+    width: 96.603px;
+    top: 35px;
+    left: -1px;
+    z-index: 999;
+    @media (max-width: 940px) {
+      left: -10px;
+    }
+    .dropdownOption {
+      @include flexCenter;
+      @include setWidthHeight(76px, 30px);
+    }
+    .dropdownOption.active {
+      color: $greenColor;
+      border: 1px solid $greenColor;
+    }
+  }
+}

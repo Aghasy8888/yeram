@@ -1,0 +1,52 @@
+@import '../../../styles/variables.module.scss';
+
+.main {
+  .container {
+    @include adminContainerStyles;
+    .table {
+      @include tableInAdminStyles(58.14px);
+      @include adminTableNameStyles(50px);
+      margin-bottom: 20px;
+      .spread {
+        position: relative;
+        padding: 12px 51.5px 24px 51.5px;
+        @media (max-width: 1400px) {
+          padding: 12px 20.5px 24px 20.5px;
+        }
+        @media (max-width: 940px) {
+          padding: 6px 19.5px 12px 18.5px;
+        }
+      }
+      .column {
+        @include adminTableColumnStyles(46.8px);
+        @media (max-width: 940px) {
+          height: 30px;
+        }
+      }
+      .column.name {
+        @media (max-width: 1400px) {
+          font-size: 13px;
+          padding-left: 20px;
+        }
+        @media (max-width: 940px) {
+          font-size: 14px;
+        }
+      }
+      .column.email {
+        min-width: 209px;
+        @media (max-width: 1400px) {
+          min-width: 220px;
+        }
+        @media (max-width: 940px) {
+          min-width: 186px;
+        }
+      }
+      .column.name.inHeader,
+      .column.email.inHeader {
+        @media (max-width: 940px) {
+          font-size: 11px;
+        }       
+      }
+    }
+  }
+}

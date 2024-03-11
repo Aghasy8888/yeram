@@ -1,0 +1,26 @@
+@import '../../../../styles/variables.module.scss';
+
+.noVideos {
+  color: $white;
+}
+.video {
+  position: relative;
+  display: inline-block;
+  max-height: 150px;
+  .openInNewTab {
+    display: inline;
+  }
+  .carNumber {
+    @include setTextStyles(10px, $white, 16px, 500);
+  }
+  .dateInfo {
+    @include setTextStyles(4px, $borderColor, 12px, 500);
+    max-width: 130px;
+  }
+  .downloadBtn {
+    position: absolute;
+    bottom: 18px;
+    right: 0;
+    cursor: pointer;
+  }
+}

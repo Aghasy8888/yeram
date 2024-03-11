@@ -1,0 +1,217 @@
+@import '../../../../styles/variables.module.scss';
+
+.nav {
+  width: 100%;
+  .container {
+    @include containerStyles;
+    display: block;
+    position: relative;
+    @media (max-width: 690px) {
+      margin: 0;
+    }
+    .threeDots {
+      display: none;
+      z-index: 9999;
+      @media (max-width: 690px) {
+        display: inline-block;
+        position: absolute;
+        right: 0px;
+        top: 7px;
+      }
+    }
+    .threeDots.fromPersonalAccount {
+      @media (max-width: 690px) {
+        right: 40px;
+      }
+    }
+    hr {
+      margin-top: 13px;
+      border: none;
+      height: 1px;
+      background-color: $purpleLighter;
+      @media (max-width: 690px) {
+        margin-bottom: 13px;
+      }
+    }
+    .linksCtn {
+      display: flex;
+      justify-content: space-between;
+      // margin-right: 260px;
+      @media (max-width: 1640px) {
+        // margin-right: 20px;
+      }
+      @media (max-width: 690px) {
+        // margin-right: 0;
+        margin-top: -25px;
+        justify-content: center;
+        h1.link {
+          margin: 0;
+          font-size: 24px;
+          text-align: center;
+        }
+      }
+      .link:not(.active) {
+        @media (max-width: 690px) {
+          display: none;
+        }
+      }
+      .link {
+        // margin-left: 40px;
+        margin-top: 77px;
+        color: $white;
+        font-size: 26px;
+        font-weight: 500;
+        @media (max-width: 1640px) {
+          font-size: 22px;
+          // margin-left: 22px;
+        }
+        @media (max-width: 940px) {
+          font-size: 16px;
+        }
+        .activeLink {
+          color: $greenColor;
+        }
+      }
+      h1.link.active {
+        position: relative;
+        &::after {
+          content: '';
+          position: absolute;
+          width: 247px;
+          height: 3px;
+          background-color: rgba(132, 148, 203, 0.5);
+          left: -8px;
+          top: 42px;
+          @media (max-width: 1640px) {
+            width: 181px;
+            height: 2px;
+            left: -7px;
+            top: 38px;
+          }
+          @media (max-width: 940px) {
+            width: 160px;
+            height: 2px;
+            left: -7px;
+            top: 30px;
+          }
+          @media (max-width: 690px) {
+            display: none;
+          }
+        }
+      }
+      h1.link.active.passengers {
+        &::after {
+          width: 247px;
+          @media (max-width: 1640px) {
+            width: 215px;
+            left: 0;
+          }
+          @media (max-width: 940px) {
+            width: 160px;
+          }
+        }
+      }
+      h1.link.active.transports {
+        &::after {
+          width: 140px;
+          @media (max-width: 1250px) {
+            width: 110px;
+          }
+        }
+      }
+      h1.link.active.users {
+        &::after {
+          width: 215px;
+          @media (max-width: 1640px) {
+            width: 176px;
+          }
+          @media (max-width: 940px) {
+            width: 204px;
+          }
+        }
+      }
+      h1.link.active.data {
+        &::after {
+          width: 200px;
+          @media (max-width: 940px) {
+            width: 130px;
+          }
+        }
+      }
+    }
+    .linksCtn.mobileMenuActive {
+      flex-direction: column;
+      .link {
+        @media (max-width: 690px) {
+          display: inline-block;
+        }
+      }
+      .link.active {
+        order: -1;
+      }
+    }
+    .linksCtn.fromPersonalAccount {
+      @media (max-width: 690px) {
+        padding: 0 10px;
+      }
+      .link {
+        @media (max-width: 940px) {
+          font-size: 26px;
+          margin-top: 0;
+          // margin-left: 29px;
+        }
+        @media (max-width: 690px) {
+          font-size: 24px;
+        }
+      }
+      h1.link.active {
+        &::after {
+          @media (max-width: 940px) {
+            top: 42px;
+          }
+        }
+      }
+    }
+  }
+  .container.fromData {
+  }
+  .container.fromTransports,
+  .container.fromUsers,
+  .container.fromData {
+    @include transportAndUsersCtnStyles;
+    .threeDots.fromPersonalAccount {
+      @media (max-width: 690px) {
+        right: 10px;
+      }
+    }
+  }
+}
+
+.nav.isSuperAdmin {
+  .container {
+    .linksCtn.fromPersonalAccount {
+      max-width: 50rem;
+      @media (max-width: 1250px) {
+        max-width: 40rem;
+      }
+      @media (max-width: 690px) {
+        max-width: unset;
+      }
+      .goBackBtn {
+        align-self: flex-end;
+        margin-bottom: -4px;
+        @media (max-width: 690px) {
+          position: absolute;
+          left: 14px;
+          top: -1px;
+        }
+      }
+    }
+  }
+}
+
+.nav.isUser {
+  @media (max-width: 690px) {
+    display: none;
+  }
+}

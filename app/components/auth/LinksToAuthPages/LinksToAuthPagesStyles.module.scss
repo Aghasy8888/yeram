@@ -1,0 +1,31 @@
+@import '../../../../styles/variables.module.scss';
+
+.linksToAuthPages {
+    display: flex;
+    margin-top: 12px;
+    gap: 37px;
+    justify-content: space-between;
+    align-items: flex-start;
+    &.inRegister {
+      gap: 16px;
+    }
+    .register {
+      color: $white;
+      font-size: 13px;
+      font-weight: 700;
+      @media (max-width: 360px) {
+        font-size: 10px;
+      }
+    }
+    .forgotPassword {
+      order: 1;
+      color: $borderColor;
+      font-size: 13px;
+      font-weight: 500;
+      border-bottom: 1px dashed $borderColor;
+      padding-bottom: 4px;
+      @media (max-width: 360px) {
+        font-size: 10px;
+      }
+    }
+  }

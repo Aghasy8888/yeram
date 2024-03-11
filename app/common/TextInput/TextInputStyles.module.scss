@@ -1,0 +1,38 @@
+@import '../../../styles/variables.module.scss';
+
+label.emailLabel {
+  margin-top: 24px !important;
+}
+
+.error {
+  position: absolute;
+  margin: 4px 0;
+  color: $redColor;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.fullNameError {
+  top: 118px;
+  left: 43px;
+  @media (max-width: 628px) {
+    left: 0;
+  }
+}
+
+.addTransportError {
+  top: 107px;
+  left: 20px;
+  @media (max-width: 540px) {
+    left: 0;
+  }
+}
+
+.emailError {
+  bottom: 118px;
+  left: 43px;
+  @media (max-width: 628px) {
+    top: 310px;
+    left: 0;
+  }
+}

@@ -1,0 +1,48 @@
+@import '../../../../styles/variables.module.scss';
+
+.companyCard {
+  margin-top: 25px;
+  margin-bottom: 28px;
+  .cardHeader {
+    position: relative;
+    padding: 15px;
+    padding-right: 23px;
+    border: 1px solid $borderColor;
+    .email {
+      @include setTextStyles(27px, $white, 14px, 500);
+    }
+    .contentCtn {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      .transportedCtn {
+        .transportedCount {
+          @include setTextStyles(20px, $greenColor, 26px, 800);
+          margin-bottom: 8px;
+        }
+      }
+    }
+
+    .name {
+      color: $white;
+      @include setFontSizeAndWeight(14px, 600);
+      text-transform: uppercase;
+      padding-left: 18px;
+      border-bottom: none;
+    }
+    .name.fromNotConnected {
+      padding-left: 0;
+    }
+  }
+  .cardHeader.fromNotConnected {
+    padding: 15px 0 11px 11px
+  }
+  .inDetailsBtn,
+  .onOffBtn {
+    @include cardBtnStyles(43px);
+  }
+  .inDetailsBtn {
+    border-bottom: none;
+    border-top: none;
+  }
+}

@@ -1,0 +1,35 @@
+@import '../../../../styles/variables.module.scss';
+
+.modalContainer {
+  @include modalContainerStyles;
+  .modalCustom {
+    @include modalCustomStyles(50%, 50%);
+    .dateModal {
+      @include actualModalStyles(350px);
+      padding: 35px 20px 30px 20px;
+      position: relative;
+      .closeXBtn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+      }
+      .applyBtnCtn {
+        display: flex;
+        justify-content: flex-end;
+        .applyBtn {
+          margin-top: 25px;
+          width: 92px;
+          height: 30px;
+          border: 1px solid $borderColor;
+          @media (max-width: 690px) {
+            border: 1px solid $greenColor;
+            color: $greenColor;
+          }
+          color: $white;
+          @include textShadow;
+          @include setFontSizeAndWeight(14px, 500);
+        }
+      }
+    }
+  }
+}

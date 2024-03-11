@@ -1,0 +1,46 @@
+@import '../../../../styles/variables.module.scss';
+
+.waitingTransport {
+  display: flex;
+  gap: 49px;
+  width: 504px;
+  margin-bottom: 12px;
+  @media (max-width: 690px) {
+    flex-wrap: wrap;
+    gap: 29px;
+    justify-content: center;
+    row-gap: 19px;
+    width: unset;
+    padding: 0;
+    margin-bottom: 44px;
+  }
+  .onOffBtn {
+    @include setWidthHeight(137px, 29px);
+    @include setFontSizeAndWeight(14px, 500);
+    border: 1px solid $white;
+    color: $white;
+  }
+  .gosNumber,
+  .connectionDate {
+    color: $white;
+    @include flexCenter;
+    @include setFontSizeAndWeight(14px, 600);
+  }
+  .connectionDate {
+    font-size: 16px;
+    width: 105px;
+    @media (max-width: 690px) {
+    }
+  }
+  .gosNumber {
+    width: 154px;
+  }
+}
+
+.lastChild.waitingTransport {
+  margin-bottom: 0;
+}
+
+.userVersion.waitingTransport {
+  gap: 28px;
+}

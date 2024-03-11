@@ -1,0 +1,45 @@
+@import '../../../../styles/variables.module.scss';
+
+.modalContainer {
+  @include modalContainerStyles;
+  .modalCustom {
+    @include modalCustomStyles(50%, 50%);
+    .addUserModal {
+      @include actualModalStyles(618px);
+      padding: 38px 56px 60px 47px;
+      @media (max-width: 628px) {
+        width: 315px;
+        padding: 38px 18px 43px;
+      }
+      .closeBtn {
+        @include closeBtnStyles(15.5px, 28px);
+      }
+      .title {
+        @include modalTitleStyles(628px);
+      }
+      .addUserForm {
+        @include modalFormStyles;
+        .roleTitle {
+          @include modalLabelStyles(24px, 42px, 628px);
+        }
+        label {
+          @include modalLabelStyles(40px, 42px, 628px);
+        }
+        input {
+          @include modalInputStyles(429px, 11px, 628px);
+        }
+        p {
+          text-align: center;
+          @include setTextStyles(20px, $white, 16px, 600);
+          max-width: 476px;
+          @media (max-width: 628px) {
+            margin-top: 35px;
+          }
+        }
+        .addUserBtn {
+          @include addBtnStyles;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+@import '../../../../styles/variables.module.scss';
+
+.authWrapper {
+  margin: auto;
+  margin-top: 110px;
+  max-width: 360px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  .container {
+    margin: 40px;
+    margin-bottom: 38px;
+    .logoCtn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+}

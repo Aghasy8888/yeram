@@ -1,0 +1,50 @@
+@import '../../../../styles/variables.module.scss';
+
+.transportCard {
+  margin-bottom: 13px;
+  .cardHeader {
+    position: relative;
+    padding: 15px 15px 17px 34px;
+    border: 1px solid $borderColor;
+    .gosNumber {
+      color: $white;
+      @include setFontSizeAndWeight(14px, 600);
+      text-transform: uppercase;
+      position: relative;
+      .ellipse {
+        position: absolute;
+        left: -19px;
+        top: 0px;
+      }
+    }
+    .cardBody {
+      display: flex;
+      justify-content: space-between;
+      .transportedCtn {
+        .option {
+          background-color: $lighterBlue;
+        }
+        .transportedCount {
+          @include transportedCountStyles;
+          margin-bottom: 9px;
+          margin-top: 18px;
+        }
+      }
+    }
+  }
+  .selectScheduleBtn,
+  .onOffBtn {
+    @include cardBtnStyles(60px);
+  }
+  .selectScheduleBtn {
+    border-top: none;
+    padding: 0 111px;
+    @media (max-width: 330px) {
+      padding: 0 100px;
+    }
+  }
+  .onOffBtn {
+    height: 42px;
+    border-top: none;
+  }
+}

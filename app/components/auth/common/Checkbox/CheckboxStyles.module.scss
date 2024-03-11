@@ -1,0 +1,25 @@
+@import '../../../../../styles/variables.module.scss';
+
+.checkbox { 
+  .error {
+    margin: 4px 0;
+    color: $redColor;
+    font-size: 12px;
+    font-weight: 500;
+  } 
+  .acceptTerms {
+    color: $white;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .checkboxInput {
+    margin-right: 2px;
+    margin-bottom: 2px;
+    width: 10px;
+    height: 10px;
+    border: 1px solid $white;
+    cursor: pointer;
+  }
+}

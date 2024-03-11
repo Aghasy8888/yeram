@@ -1,0 +1,39 @@
+@import '../../../../styles/variables.module.scss';
+
+.inputGroup {
+    .inputCtn {
+      margin-bottom: 15px;
+      &:last-child {
+        margin-bottom: 8px;
+      }
+      input {
+        width: 100%;
+        height: 30px;
+        border: 1px solid $borderColor;
+        color: $borderColor;
+        padding-left: 10px;
+        background-color: $darkBlue;
+        font-size: 13px;
+        font-weight: 500;       
+      }
+      input:focus {
+        outline: none;
+        box-shadow: none;
+      }
+      input.withError {
+        border: 1px solid $redColor;
+      }
+    }
+    .inputCtn.withError {
+      margin-bottom: 0;
+      &:last-child {
+        margin-bottom: 8px;
+      }
+    }
+    .error {
+      margin: 4px 0;
+      color: $redColor;
+      font-size: 12px;
+      font-weight: 500;
+    }
+  }

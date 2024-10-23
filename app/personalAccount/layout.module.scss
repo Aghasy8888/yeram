@@ -1,0 +1,55 @@
+@import '../../styles/variables.module.scss';
+
+.main {
+  @include bigContainerStyles;
+  .container {
+    margin-left: 260px;
+    display: flex;
+    @media (max-width: 1640px) {
+      margin-left: 0;
+    }
+    @media (max-width: 940px) {
+      flex-direction: column;
+    }
+    .imgCtn {
+      margin-top: 74px;
+    }
+    .imgCtn.screenIsLessThan_940 {
+      margin-top: 21px;
+      margin-left: 22px;
+      @media (max-width: 690px) {
+        margin: auto;
+        margin-top: 33px;
+        margin-bottom: -10px;
+      }
+    }
+    .mainSection {
+      width: 100%;
+    }
+    .companyTitle {
+      @include companyTitleStyles;
+      @media (max-width: 940px) {
+        text-align: start;
+        margin: 0;
+        padding: 36px 0 30px 29px;
+      }
+    }
+    .companyTitleOutside {
+      @media (max-width: 690px) {
+        padding: 32px 0 0 0;
+        text-align: center;
+        margin-bottom: -18px;
+      }
+    }
+    .logoutBtn {
+      @include logoutBtnStyles;
+    }
+    footer {
+      @include footerStyles;
+      @media (max-width: 690px) {
+        margin-top: 0;
+        padding-top: 35px;
+      }
+    }
+  }
+}

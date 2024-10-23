@@ -1,0 +1,51 @@
+@import '../../styles/variables.module.scss';
+
+.main {
+  @include bigContainerStyles;
+  .logoutBtn {
+    @include logoutBtnStyles;
+  }
+  .container {
+    .searchAndChildCtn {
+      width: 100%;
+      .search {
+        @include adminContainerStyles;
+      }
+    }
+    .imgCtn {
+      margin-top: 74px;
+      @media (max-width: 690px) {
+        margin-top: 33px;
+      }
+    }
+    .adminLinks {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 45px;
+      margin-top: 80px;
+      width: 100%;
+      padding-left: 16px;
+      @media (max-width: 690px) {
+        margin-top: 43px;
+        flex-direction: row;
+        justify-content: center;        
+        gap: 46px;
+        padding-left: 0;
+      }
+      .adminLink {
+        @include setFontSizeAndWeight(18px, 500);
+        color: $white;
+        @media (max-width: 1640px) {
+          font-size: 14px;
+        }
+        @media (max-width: 690px) {
+          font-size: 16px;
+        }
+      }
+      .adminLink.activeLink {
+        color: $greenColor;
+      }
+    }
+  }
+}

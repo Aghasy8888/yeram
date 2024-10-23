@@ -1,0 +1,18 @@
+@import '../../../../styles/variables.module.scss';
+
+.selectedPeriodSection {
+  width: 100%;
+  .container {
+    @include containerStyles;
+    @media (max-width: 940px) {
+      flex-direction: column;
+    }
+    .carNumbers {
+      @include setTextStyles(26px, $white, 20px, 600);
+      @media (max-width: 1640px) {
+        margin-top: 28px;
+        font-size: 18px;
+      }
+    }
+  }
+}

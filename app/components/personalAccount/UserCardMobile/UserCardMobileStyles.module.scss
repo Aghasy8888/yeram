@@ -1,0 +1,27 @@
+@import '../../../../styles/variables.module.scss';
+
+.userCard {
+  margin-bottom: 28px;
+  .cardHeader {
+    padding: 16px 0 8px 33px;
+    border: 1px solid $borderColor;
+    .fullName {
+      position: relative;
+      color: $white;
+      @include setFontSizeAndWeight(14px, 600);
+      .ellipse {
+        position: absolute;
+        left: -19px;
+        top: 1px;
+      }
+    }
+    .email {
+      @include setTextStyles(27px, $white, 14px, 600);
+      margin-left: -18px;
+    }
+  }
+  .selectRoleCtn,
+  .onOffBtn {
+    @include cardBtnStyles(43px);
+  }
+}

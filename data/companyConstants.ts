@@ -1,0 +1,9 @@
+export const COMPANY_NAME = 'Название компании';
+export const TIN = 'ИНН';
+export const TRRC = 'КПП';
+export const PSRN = 'ОГРН';
+export const RBOC = 'ОКПО';
+export const PHONE = 'Телефон';
+export const COMMENT = 'Комментарии';
+export const COMMENT_REQUIRED = 'Комментарии обязательны';
+export const PHONE_EXACT_LENGTH_MESSAGE = `${PHONE} должен быть ровно 12 символов`;

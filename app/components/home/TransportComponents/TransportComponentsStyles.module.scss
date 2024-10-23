@@ -1,0 +1,62 @@
+@import '../../../../styles/variables.module.scss';
+
+.carNumbers {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    @media (max-width: 690px) {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      column-gap: 20px;
+      row-gap: 15px;
+      margin-top: 27px;
+    }  
+    .carNumber {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      width: 250px;
+      padding: 7px 15px 7px 14px;
+      cursor: pointer;
+      @media (max-width: 1640px) {
+        width: 160px;
+        padding-left: 7px;
+        gap: 4px;
+      }
+      height: 40px;
+      border: 1px solid $purple;
+      color: $purple;
+      .gosNumberCtn {
+        @include flexCenter;
+        width: inherit;
+        h3 {
+          @include setFontSizeAndWeight(18px, 600);
+          @media (max-width: 1640px) {
+            font-size: 13px;
+          }
+          color: $borderColor;
+        }
+      }
+  
+      .plusOrMinus {
+        @include setFontSizeAndWeight(20px, 600);
+        margin-right: 5px;
+        min-width: 14px;
+      }
+    }
+    .carNumber {
+      padding-right: 3px;
+      &.active {
+        h3 {
+          color: $white;
+          @include setFontSizeAndWeight(18px, 600);
+          @media (max-width: 1640px) {
+            font-size: 13px;
+          }
+        }
+      }
+    }
+  }

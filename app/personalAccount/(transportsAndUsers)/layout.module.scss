@@ -1,0 +1,11 @@
+@import '../../../styles/variables.module.scss';
+
+.main {
+  margin-top: -20px;
+  @media (max-width: 690) {
+    margin-top: 0;
+  }
+  .search {
+    @include transportAndUsersCtnStyles;    
+  }
+}

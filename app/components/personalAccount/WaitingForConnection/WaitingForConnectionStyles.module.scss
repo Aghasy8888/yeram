@@ -1,0 +1,31 @@
+@import '../../../../styles/variables.module.scss';
+
+.waitingForConnection {
+  position: relative;
+  margin-top: -20px;
+  margin-bottom: 40px;
+  @media (max-width: 690px) {
+    margin-top: 20px;
+    margin-bottom: 0;
+  }
+  .title {
+    width: 414px;
+    position: absolute;
+    top: 40px;
+    text-align: start;
+    color: #fff;
+    border-bottom: 3px solid $purpleLighter;
+    padding: 20px 50px 20px 30px;
+    @include setFontSizeAndWeight(26px, 600);
+    @media (max-width: 1640px) {
+      font-size: 24px;
+    }
+    @media (max-width: 690px) {
+      position: static;
+      padding: 20px 0;
+      width: unset;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+  }
+}

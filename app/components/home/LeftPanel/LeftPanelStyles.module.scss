@@ -1,0 +1,49 @@
+@import '../../../../styles/variables.module.scss';
+
+.leftPanel {
+  min-width: 300px;
+  background-color: $companyColor;
+  min-height: 100vh;
+  overflow: hidden;
+  @media (max-width: 1640px) {
+    min-width: 200px;
+  }
+  @media (max-width: 690px) {
+    background-color: $darkBlue;
+    min-height: unset;
+    height: fit-content;
+  }
+  .container {
+    margin: 0 25px;
+    @media (max-width: 1640px) {
+      margin: 0 16px;
+    }
+    @media (max-width: 690px) {
+      margin: 0 10px;
+    }
+    @include flexCenterDirColumn;
+    .companyTitle {
+      text-align: center;
+      overflow-wrap: anywhere;
+      margin-top: 71px;
+      font-family: 'Montserrat', sans-serif;
+      color: $white;
+      font-size: 40px;
+      @media (max-width: 1640px) {
+        font-size: 28px;
+      }
+      @media (max-width: 690px) {
+        margin-top: 0;
+        padding: 32px 0 17px 0;
+      }
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+  }
+}
+
+.leftPanel.fromPersonalAccount {
+  @media (max-width: 940px) {
+    display: none;
+  }
+}

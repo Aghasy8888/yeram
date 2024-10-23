@@ -1,0 +1,66 @@
+@import '../../../../styles/variables.module.scss';
+
+.carsInfo {
+  @media (max-width: 1640px) {
+    padding-left: 20px;
+  }
+  @media (max-width: 690px) {
+    padding: 0;
+  }
+  .infoAndButtonsCtn {
+    position: relative;
+    display: flex;
+    gap: 13px;
+    margin: 15px 0 0 40px;
+    @media (max-width: 1640px) {
+      margin-left: 40px;
+    }
+    @media (max-width: 690px) {
+      margin-left: 10px;
+    }
+    .downloadIcon {
+      position: relative;
+    }
+    .IconsCtn {
+      @include flexCenter;
+      padding-bottom: 4px;
+      cursor: pointer;
+    }
+    .hours {
+      color: $white;
+      @include flexCenter;
+      @include setFontSizeAndWeight(14px, 500);
+    }
+    .carNumber {
+      padding: 4px 10px 4px 10px;
+      width: 164px; //120px
+      height: 25px;
+      border: 1.303px solid $borderColor;
+      color: $white;
+      @include flexCenter;
+      @include setFontSizeAndWeight(14px, 500);
+    }
+  }
+  .enteredExitedNums {
+    display: flex;
+    gap: 18px;
+    margin: 10px 0 15px 39px;
+    color: $greenColor;
+    @media (max-width: 1640px) {
+      margin-left: 40px;
+    }
+    @media (max-width: 690px) {
+      margin-left: 10px;
+    }
+    @include setFontSizeAndWeight(10px, 500);
+    text-transform: uppercase;
+    .exited {
+      color: $pinkColor;
+    }
+  }
+  hr {
+    border: none;
+    height: 1px;
+    background-color: $borderColor;
+  }
+}

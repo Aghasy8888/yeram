@@ -1,0 +1,163 @@
+@import '../../../../styles/variables.module.scss';
+
+.main {
+  .container {
+    @include transportAndUsersCtnStyles;
+    @media (max-width: 690px) {
+      margin-top: 0;
+    }
+    .transportCardsCtn {
+      overflow-y: scroll;
+      height: 514px;
+      margin-top: 28px;
+    }
+    .transportCardsCtn.lessThanTwoTransports {
+      height: 265px;
+    }
+    .table {
+      @include tableInAdminStyles(28px);
+      .column {
+        @include adminTableColumnStyles(46px);
+      }
+      .column.gosNumber {
+        width: 18.32rem;
+        position: relative;
+        text-align: start;
+        padding: 38px 0;
+        padding-left: 36px;
+        min-width: 190px;
+        @media (max-width: 1400px) {
+          width: 11.95rem;
+          min-width: unset;
+        }
+        @media (max-width: 940px) {
+          width: 12.26rem;
+          min-width: 180px;
+        }
+        .ellipse {
+          position: absolute;
+          left: 16px;
+          top: 38px;
+        }
+      }
+      .column.gosNumber.userVersion {
+        width: 28.7rem;
+        @media (max-width: 1400px) {
+          width: 18rem;
+        }
+      }
+      th.column.gosNumber {
+        padding: 0;
+        padding-left: 44px;
+      }
+      .column.schedule {
+        width: 9.58rem;
+        min-width: 127px;
+        @media (max-width: 1400px) {
+          width: 8.15rem;
+        }
+        @media (max-width: 940px) {
+          width: 8.15rem;
+        }
+        .openScheduleBtn {
+          padding: 5px;
+          width: 109px;
+          border: 1px solid $white;
+        }
+      }
+      .column.schedule.userVersion {
+        width: 18.54rem;
+        @media (max-width: 1400px) {
+          width: 12.46rem;
+        }
+      }
+      .column.transported {
+        width: 17.15rem;
+        min-width: 227.3px;
+        @media (max-width: 1400px) {
+          width: 14.15rem;
+          min-width: 201.3px;
+        }
+        @media (max-width: 940px) {
+          width: 14.15rem;
+        }
+        .transportedCtn {
+          display: flex;
+          justify-content: space-between;
+          padding: 0 1.47rem;
+          @media (max-width: 1740px) {
+            padding: 0 1rem;
+          }
+          @media (max-width: 1400px) {
+            padding: 0 0.72rem;
+          }
+          .option {
+            background-color: $lighterBlue;
+          }
+        }
+        .transportedCtn.userVersion {
+          padding: 0 2.82rem;
+          @media (max-width: 1400px) {
+            padding: 0 1.34rem;
+          }
+          @media (max-width: 940px) {
+            padding: 0 1rem;
+          }
+        }
+        .transportedCount {
+          @include transportedCountStyles;
+          // width: 50%;
+          text-align: center;
+          @media (max-width: 940px) {
+            margin-right: 6px;
+          }
+        }
+      }
+      .column.transported.userVersion {
+        width: 19.12rem;
+        @media (max-width: 1400px) {
+          width: 15.4rem;
+        }
+      }
+      .column.control {
+        width: 10.94rem;
+        min-width: 146px;
+        @media (max-width: 1400px) {
+          width: 7.93rem;
+          min-width: unset;
+        }
+        @media (max-width: 940px) {
+          width: 7.93rem;
+        }
+      }
+      .column.control.userVersion,
+      .column.connection.userVersion {
+        display: none;
+      }
+      .column.connection {
+        width: 10.27rem;
+        min-width: 3.31rem;
+        @media (max-width: 1740px) {
+          width: 5rem;
+        }
+        @media (max-width: 1400px) {
+          width: 3.21rem;
+        }
+        @media (max-width: 1000px) {
+          width: 2.15rem;
+          min-width: unset;
+        }
+      }
+      td.column.connection {
+      }
+    }
+    .addTransportBtnCtn {
+      @include addTransportOrUserBtnStyles(200px, 45px);
+      .addTransportOrUserBtn {
+        @media (max-width: 690px) {
+          width: 131px;
+        }
+      }
+    }
+  }
+}

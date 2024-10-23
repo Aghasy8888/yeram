@@ -1,0 +1,97 @@
+@import '../../../../styles/variables.module.scss';
+
+.switch {
+  position: relative;
+  display: inline-block;
+  @include setWidthHeight(49.081px, 27.549px);
+  @media (max-width: 1400px) {
+    @include setWidthHeight(35px, 19.65px);
+  }
+  .displayOrData {
+    position: absolute;
+    top: 2px;
+    right: 70px;
+    color: $white;
+    @include setFontSizeAndWeight(14px, 500);
+    cursor: pointer;
+    @media (max-width: 1400px) {
+      font-size: 12px;
+      right: 44px;
+    }
+    @media (max-width: 940px) {
+      top: 1px;
+      right: 42px;
+    }
+  }
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    border-color: $borderColor;
+    background-color: $darkBlue;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+  }
+
+  .slider:before {
+    position: absolute;
+    content: '';
+    height: 13px;
+    width: 13px;
+    left: 3px;
+    bottom: 3px;
+    background-color: $borderColor;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+    @media (max-width: 1400px) {
+      height: 8.5px;
+      width: 8.5px;
+      bottom: 1.5px;
+    }
+  }
+
+  input:checked + .slider {
+    border: 2px solid $greenColor;
+  }
+
+  input:focus + .slider {
+    box-shadow: 0 0 1px #2196f3;
+  }
+
+  input:checked + .slider:before {
+    -webkit-transform: translateX(21px);
+    -ms-transform: translateX(21px);
+    transform: translateX(21px);
+    left: 4px;
+    bottom: 3px;
+    @media (max-width: 1400px) {
+      -webkit-transform: translateX(13px);
+      -ms-transform: translateX(13px);
+      transform: translateX(13px);
+      bottom: 1.7px;
+    }
+  }
+
+  .slider.round {
+    border-radius: 34px;
+    background-color: $darkBlue;
+    border: $borderColor 2px solid;
+  }
+
+  .slider.round:before {
+    border-radius: 50%;
+    background-color: $darkBlue;
+    border: $borderColor 2px solid;
+  }
+  input:checked + .slider.round:before {
+    border: $greenColor 2px solid;
+  }
+}

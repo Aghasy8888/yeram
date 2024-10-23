@@ -1,0 +1,36 @@
+@import '../../../../styles/variables.module.scss';
+
+.labelCtn {
+  position: relative;
+  margin-top: 83px;
+  @media (max-width: 690px) {
+    margin-top: 48px;
+  }
+  .error {
+    position: absolute;
+    color: $redColor;
+    font-size: 12px;
+    bottom: -12px;
+  }
+  .sectionTitle {
+    @include setTextStyles(0, $white, 20px, 600);
+  }
+}
+
+.textarea {
+  margin-top: 16px;
+  padding: 20px;
+  @include setWidthHeight(100%, 203px);
+  border: 1px solid $white !important;
+  color: $white;
+  @media (max-width: 1640px) {
+    height: 267px;
+  }
+  @media (max-width: 690px) {
+    height: 373px;
+  }
+}
+
+.saveBtnCtn {
+  @include saveBtnStyles(212.5px);
+}

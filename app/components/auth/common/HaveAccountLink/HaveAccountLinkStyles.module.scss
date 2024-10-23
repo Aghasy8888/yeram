@@ -1,0 +1,14 @@
+@import '../../../../../styles/variables.module.scss';
+
+.haveAccount {
+    display: flex;
+    align-items: center;
+    & .haveAccountText {
+      color: $borderColor;
+      font-size: 13px;
+      font-weight: 500;
+      @media (max-width: 360px) {
+        font-size: 10px;
+      }
+    }
+  }

@@ -1,0 +1,25 @@
+@import '../../../../styles/variables.module.scss';
+
+.serviceSection {
+  min-height: 100vh;
+  @media (max-width: 690px) {
+    min-height: unset;
+  }
+  .container {
+    margin-left: 260px;
+    display: flex;
+    @media (max-width: 1640px) {
+      margin-left: 0;
+    }
+    @media (max-width: 690px) {
+      flex-direction: column;
+    }
+    .companyTitle {
+      @include companyTitleStyles;
+      @media (max-width: 690px) {
+        margin-top: 0;
+        padding: 32px 0 17px 0;
+      }
+    }
+  }
+}

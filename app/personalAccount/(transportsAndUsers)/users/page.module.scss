@@ -1,0 +1,74 @@
+@import '../../../../styles/variables.module.scss';
+
+.main {
+  .container {
+    @include transportAndUsersCtnStyles;
+    @media (max-width: 690px) {
+      margin-top: 0;
+    }
+    .userCardsCtn {
+      margin-top: 28px;
+    }
+    .table {
+      @include tableInAdminStyles(28px);
+      .column {
+        @include adminTableColumnStyles(46px);
+      }
+
+      .column.fullName {
+        width: 25.26rem;
+        position: relative;
+        text-align: start;
+        padding: 38px 15px 38px 36px;
+        min-width: 196px;
+        @media (max-width: 1400px) {
+          width: 19.32rem;
+        }
+        .ellipse {
+          position: absolute;
+          left: 16px;
+          top: 38px;
+        }
+      }
+      th.column.column.fullName {
+        padding: 0;
+        text-align: center;
+      }
+      .column.email {
+        width: 15.65rem;
+        padding-left: 29px;
+        padding-right: 15px;
+        @media (max-width: 1400px) {
+          padding-left: 15px;
+          width: 12.53rem;
+        }
+      }
+      td.column.email {
+        text-align: start;
+      }
+      .column.role {
+        width: 15.47rem;
+        @media (max-width: 1400px) {
+          width: 11.18rem;
+        }
+      }
+      .column.connection {
+        width: 9.95rem;
+        @media (max-width: 1400px) {
+          width: 2.78rem;
+        }
+      }
+    }
+    .addUserBtnCtn {
+      @include addTransportOrUserBtnStyles(342.5px, 45px);
+      .addTransportOrUserBtn {
+        @media (max-width: 1640px) {
+          width: 209px;
+        }
+      }
+      .addTransportOrUserBtn.disabled {
+        @include setBtnDisabledStyles;
+      }
+    }
+  }
+}

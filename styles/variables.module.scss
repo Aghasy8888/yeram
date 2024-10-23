@@ -1,0 +1,496 @@
+//colors
+$darkBlue: #0c122a;
+$purple: #8494cb;
+$white: #fff;
+$greenColor: #3dcb67;
+$darkGreen: rgba(50, 166, 88, 0.15);
+$borderColor: rgba(255, 255, 255, 0.5);
+$redColor: red;
+$companyColor: rgba(255, 255, 255, 0.05);
+$lighterBlue: #181e35;
+$pinkColor: #721ab9;
+$purpleLighter: rgba(132, 148, 203, 0.5);
+
+//mixins
+
+@mixin setBtnDisabledStyles {
+  color: $borderColor;
+  border-color: $borderColor;
+}
+
+@mixin scrollStyles {
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-track {
+    margin-block: -2px;
+    border-radius: 10px;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.121) 0%,
+      rgba(255, 255, 255, 0.121) 12%
+    );
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: $purple;
+    border-radius: 10px;
+  }
+}
+
+//admin table mixins
+@mixin tableInAdminStyles($marginTop) {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: $marginTop;
+}
+
+@mixin adminTableColumnStyles($height) {
+  text-align: center;
+  color: $white;
+  border: 1px solid $borderColor;
+  height: $height;
+  @include setFontSizeAndWeight(14px, 600);
+}
+
+@mixin adminTableNameStyles($paddingLeft) {
+  .column.name {
+    width: 100%;
+    position: relative;
+    text-align: start;
+    padding-left: $paddingLeft;
+    text-transform: uppercase;
+  }
+  .column.name.inHeader {
+    text-align: center;
+    padding-left: 0;
+    text-transform: unset;
+  }
+}
+
+//modal mixins
+@mixin modalContainerStyles {
+  width: 100%;
+  height: 100vh;
+  background: rgba(191, 226, 194, 0.5);
+  position: fixed;
+  z-index: 9999999;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+@mixin modalCustomStyles($top, $left) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  transform: translate(-50%, -50%);
+  min-width: 240px;
+  // max-width: 600px;
+  border-radius: 7px;
+  color: rgb(221, 225, 228);
+}
+
+@mixin actualModalStyles($width) {
+  margin: auto;
+  margin-top: 10px;
+  color: $white;
+  width: $width;
+  background-color: $lighterBlue;
+  @media (max-width: 360px) {
+    width: 330px;
+  }
+}
+
+@mixin applyBtnCtnStyles {
+  display: flex;
+  justify-content: flex-end;
+  .applyBtn {
+    margin-top: 25px;
+    width: 92px;
+    height: 30px;
+    border: 1px solid $borderColor;
+    @media (max-width: 690px) {
+      border: 1px solid $greenColor;
+      color: $greenColor;
+    }
+    color: $white;
+    @include textShadow;
+    @include setFontSizeAndWeight(14px, 500);
+  }
+}
+
+//table mixins
+@mixin firstColumnStyles {
+  width: 76px;
+  min-width: 76px;
+  padding: 15px 6px 18px 6px;
+  color: $white;
+  @include setFontSizeAndWeight(10px, 500);
+  border: 1px solid $borderColor;
+  border-left: none;
+  border-bottom: none;
+}
+
+@mixin columnStyles {
+  width: 44.5px;
+  min-width: 44.6px;
+  min-height: 45px;
+  text-align: center;
+  color: $greenColor;
+  @include setFontSizeAndWeight(14px, 500);
+  border: 1px solid $borderColor;
+  border-bottom: none;
+  @media (max-width: 1640px) {
+    width: unset;
+  }
+}
+
+//other mixins
+@mixin shiftStartOrEndCtnStyles {
+  position: relative;
+  padding-left: 15px;
+  @media (max-width: 1640px) {
+    padding-left: 10px;
+    padding-bottom: 6px;
+  }
+  @media (max-width: 745px) {
+    padding-left: 20px;
+    padding-bottom: 0;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    bottom: 0;
+    @media (max-width: 1640px) {
+      top: 2px;
+      bottom: 0;
+    }
+    width: 1px;
+    background-color: $white;
+  }
+}
+
+@mixin inputGroupStyles {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  max-width: 120px;
+  @media (max-width: 1640px) {
+    max-width: 117px;
+    gap: 30px;
+  }
+  @media (max-width: 690px) {
+    gap: 20px;
+  }
+  label {
+    @include setFontSizeAndWeight(12px, 500);
+    position: relative;
+    color: $white;
+    cursor: pointer;
+    .error {
+      position: absolute;
+      color: $redColor;
+      top: 48px;
+    }
+  }
+  input {
+    padding: 6px 0 5px 10px;
+    margin-top: 10px;
+    width: 120px;
+    font-size: 14px;
+    @media (max-width: 1640px) {
+      margin-top: 5px;
+      width: 117px;
+    }
+    height: 25px;
+    border: 1.303px solid $borderColor;
+    color: $white;
+  }
+}
+
+@mixin flexCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flexCenterDirColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@mixin textShadow {
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+@mixin dataPageCntStyles(
+  $marginTopTill_1640,
+  $marginTop_1400,
+  $marginTop_940,
+  $marginTop_690
+) {
+  margin: $marginTopTill_1640 260px 0 64px;
+  @media (max-width: 1640px) {
+    margin: $marginTopTill_1640 44px 0 36px;
+  }
+  @media (max-width: 1400px) {
+    margin: $marginTop_1400 44px 0 36px;
+  }
+  @media (max-width: 940px) {
+    margin: $marginTop_940 21px 0 29px;
+  }
+  @media (max-width: 690px) {
+    margin: 0 auto;
+    margin-top: $marginTop_690;
+    max-width: 360px;
+    padding: 0 36px;
+  }
+}
+
+@mixin containerStyles {
+  margin: 0 260px 0 34px;
+  display: flex;
+  justify-content: space-between;
+  @media (max-width: 1640px) {
+    margin-right: 20px;
+    margin: 0 20px;
+  }
+  @media (max-width: 745px) {
+    margin-right: 20px;
+    margin: 0 10px;
+  }
+}
+
+@mixin dataPageMarginTop {
+  margin-top: 71px;
+  @media (max-width: 1640px) {
+    margin-top: 40px;
+  }
+  @media (max-width: 1400px) {
+    margin-top: 40px;
+  }
+  @media (max-width: 940px) {
+    margin-top: 20.5px;
+  }
+  @media (max-width: 690px) {
+    margin-top: 33.5px;
+  }
+}
+
+@mixin transportAndUsersCtnStyles {
+  margin: 0 260px 0 29px;
+  @media (max-width: 1640px) {
+    margin: 0 20px 0 40px;
+  }
+  @media (max-width: 940px) {
+    margin: 0 25px 0 22px;
+  }
+  @media (max-width: 690px) {
+    margin: 0 auto;
+    max-width: 360px;
+    padding: 0 10px;
+    margin-top: 35.5px;
+  }
+}
+
+@mixin addTransportOrUserBtnStyles($width, $height) {
+  display: flex;
+  justify-content: flex-end;
+  .addTransportOrUserBtn {
+    @include setWidthHeight($width, $height);
+    @include setTextStyles(29px, $white, 23px, 600);
+    text-align: center;
+    text-transform: capitalize;
+    border: 1px solid $white;
+    @media (max-width: 1640px) {
+      font-size: 14px;
+    }
+  }
+}
+
+@mixin closeBtnStyles($right, $left) {
+  position: absolute;
+  right: $right;
+  top: $left;
+}
+
+//personal account modal mixins
+
+@mixin modalTitleStyles($changeScreenSize) {
+  color: $white;
+  text-align: center;
+  @include setFontSizeAndWeight(36px, 600);
+  @media (max-width: $changeScreenSize) {
+    font-size: 26px;
+  }
+}
+
+@mixin modalFormStyles {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+@mixin modalInputStyles($width, $marginTop, $changeScreenSize) {
+  @include setWidthHeight($width, 40px);
+  @include setTextStyles($marginTop, $borderColor, 20px, 600);
+  border: 1px solid $white;
+  padding-left: 10px;
+  @media (max-width: $changeScreenSize) {
+    width: 100%;
+  }
+}
+
+@mixin modalLabelStyles($marginTop, $paddingLeft, $changeScreenSize) {
+  @include setTextStyles($marginTop, $white, 20px, 600);
+  align-self: flex-start;
+  padding-left: $paddingLeft;
+  @media (max-width: $changeScreenSize) {
+    padding-left: 0;
+  }
+}
+
+@mixin addBtnStyles {
+  @include setTextStyles(28px, $white, 20px, 600);
+  @include setWidthHeight(141.135px, 54.968px);
+  border: 1px solid $white;
+}
+
+@mixin adminContainerStyles {
+  margin: 0 260px 0 29px;
+  @media (max-width: 1640px) {
+    margin: 0 50px 0 15px;
+  }
+  @media (max-width: 940px) {
+    margin: 0 28px 0 17px;
+  }
+  @media (max-width: 690px) {
+    margin: 0 auto;
+    max-width: 360px;
+    padding: 0 10px;
+  }
+}
+
+@mixin setWidthHeight($width, $height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin setFontSizeAndWeight($fontSize, $fontWeight) {
+  font-size: $fontSize;
+  font-weight: $fontWeight;
+}
+
+@mixin setTextStyles($marginTop, $color, $fontSize, $fontWeight) {
+  margin-top: $marginTop;
+  color: $color;
+  @include setFontSizeAndWeight($fontSize, $fontWeight);
+}
+
+@mixin unsetWidth($right, $left) {
+  width: unset;
+  right: $right;
+  left: $left;
+}
+
+@mixin resetUlStyle {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@mixin bigContainerStyles {
+  min-height: 100vh;
+  @media (max-width: 690px) {
+    min-height: unset;
+  }
+  .container {
+    margin-left: 260px;
+    display: flex;
+    @media (max-width: 1835px) {
+      margin-left: 160px;
+    }
+    @media (max-width: 1640px) {
+      margin-left: 0;
+    }
+    @media (max-width: 690px) {
+      flex-direction: column;
+    }
+  }
+}
+
+@mixin companyTitleStyles {
+  text-align: center;
+  overflow-wrap: anywhere;
+  margin-top: 71px;
+  font-family: 'Montserrat', sans-serif;
+  color: $white;
+  font-size: 40px;
+  @media (max-width: 1640px) {
+    font-size: 28px;
+  }
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+@mixin logoutBtnStyles {
+  @include textShadow;
+  @include setFontSizeAndWeight(14px, 500);
+  color: $white;
+  background-color: $darkBlue;
+  border: 1px solid $borderColor;
+  padding: 5px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+}
+
+@mixin footerStyles {
+  margin-top: -18px;
+  padding: 60px 100px;
+  @include flexCenterDirColumn;
+  @media (max-width: 690px) {
+    padding: 60px 87px;
+  }
+}
+
+@mixin saveBtnStyles($width) {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 92px;
+  @media (max-width: 690px) {
+    margin-bottom: 0;
+  }
+  .saveBtn {
+    @include setWidthHeight($width, 45px);
+    @include setTextStyles(28px, $white, 24px, 600);
+    border: 1px solid $white;
+    @media (max-width: 1640px) {
+      width: 131px;
+      font-size: 14px;
+    }
+    @media (max-width: 690px) {
+      margin-top: 13px;
+    }
+  }
+}
+
+@mixin cardBtnStyles($height) {
+  @include setWidthHeight(100%, $height);
+  @include setFontSizeAndWeight(14px, 500);
+  @include textShadow;
+  border: 1px solid $borderColor;
+  color: $white;
+  text-align: center;
+}
+
+@mixin transportedCountStyles {
+  color: #3dcb67;
+  @include setFontSizeAndWeight(26px, 800);
+}

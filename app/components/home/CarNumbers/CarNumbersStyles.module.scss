@@ -1,0 +1,16 @@
+@import '../../../../styles/variables.module.scss';
+
+@mixin carTextStyles {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.applyBtn {
+  @include setTextStyles(30px, $white, 14px, 500);
+  @include textShadow;
+  width: 92px;
+  height: 30px;
+  border: 1px solid $borderColor;
+  align-self: center;
+}
+

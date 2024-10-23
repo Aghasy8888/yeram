@@ -1,0 +1,76 @@
+@import '../../../../styles/variables.module.scss';
+
+.resultsCtn {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 17px;
+  font-size: 12px;
+  @media (max-width: 1640px) {
+    row-gap: 29px;
+  }
+  @media (max-width: 745px) {
+    min-width: 192px;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+  .totalBlock {
+    align-self: flex-end;
+    padding-left: 15px;
+    padding-right: 9px;
+    @media (max-width: 1640px) {
+      padding-right: 0;
+      padding-bottom: 6px;
+      padding-top: 6px;
+    }
+    @media (max-width: 745px) {
+      padding-left: 10px;
+      padding-top: 0px;
+    }
+    border-left: 1px solid $borderColor;
+  }
+  .salaryBlock {
+    @media (max-width: 1640px) {
+      padding-bottom: 6px;
+      margin-top: 4px;
+    }
+    @media (max-width: 745px) {
+      border-left: 1px solid $borderColor;
+      padding-left: 10px;
+    }
+  }
+  .incomeBlock {
+    grid-column: span 2;
+    grid-row: span 1;
+    @media (max-width: 1640px) {
+      margin-top: 2px;
+    }
+    @media (max-width: 745px) {
+      grid-column: unset;
+      grid-row: unset;
+    }
+    .incomeResult {
+      @include setTextStyles(8px, $greenColor, 28px, 600);
+      width: 100%;
+      @media (max-width: 1640px) {
+        font-size: 24px;
+        margin-top: 1px;
+      }
+      @media (max-width: 745px) {
+        margin-top: 9px;
+      }
+      @media (max-width: 690px) {
+        font-size: 18px;
+      }
+    }
+  }
+  // }
+
+  .result {
+    @include setTextStyles(15px, $greenColor, 22px, 600);
+    width: 87px;
+    @media (max-width: 1640px) {
+      width: 85px;
+      margin-top: 9px;
+      font-size: 18px;
+    }
+  }
+}

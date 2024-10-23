@@ -1,0 +1,83 @@
+@import '../../../styles/variables.module.scss';
+
+.main {
+  .container {
+    @include adminContainerStyles;
+    .table {
+      @include tableInAdminStyles(56.5px);
+      @include adminTableNameStyles(65px);
+      margin-bottom: 20px;
+      .column.name {
+        @media (max-width: 1400px) {
+          padding-left: 34px;
+        }
+      }
+      .spread {
+        position: relative;
+        padding: 48px 34px 36px 34px;
+        @media (max-width: 1400px) {
+          padding: 44px 24px 33px 24px;
+        }
+        @media (max-width: 940px) {
+          padding: 36px 8.5px 35px 8.5px;
+        }
+        .detailsBtn {
+          @include flexCenter;
+        }
+      }
+      .column {
+        @include adminTableColumnStyles(45px);
+      }
+      .column.transported {
+        min-width: 297px;
+        @media (max-width: 1400px) {
+          min-width: 224px;
+        }
+        @media (max-width: 940px) {
+          min-width: 129px;
+        }
+        .transportedCtn {
+          display: flex;
+          justify-content: space-between;
+          padding-left: 30px;
+          padding-right: 26px;
+          @media (max-width: 1400px) {
+            padding-left: 10px;
+            padding-right: 22px;
+          }
+          @media (max-width: 940px) {
+            padding-right: 21px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 6px;
+          }
+          .option {
+            background-color: $lighterBlue;
+          }
+        }
+        .transportedCount {
+          color: #3dcb67;
+          text-align: center;
+          @include setFontSizeAndWeight(26px, 800);
+          @media (max-width: 1400px) {
+            font-size: 24px;
+          }
+          @media (max-width: 940px) {
+            font-size: 20px;
+            margin-right: 6px;
+          }
+        }
+      }
+      .column.control {
+        min-width: 185px;
+        @media (max-width: 1400px) {
+          min-width: 134px;
+        }
+        @media (max-width: 940px) {
+          min-width: 122px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import '../../../../styles/variables.module.scss';
+
+
+  .container {
+    @include setWidthHeight(100%, 40px);
+    border: 1px solid $white;
+    margin-top: 74px;
+    padding: 10px 5px 10px 15px;
+    @include flexCenter;
+    justify-content: flex-start;
+    gap: 10px;
+    overflow: hidden;    
+    @media (max-width: 690px) {
+      margin-top: 24px;
+    }
+    .searchInput {
+      width: 100%;
+      color: $white;
+      @include setFontSizeAndWeight(16px, 400);
+    }
+  }

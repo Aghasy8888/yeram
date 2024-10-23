@@ -1,0 +1,168 @@
+@import '../../../styles/variables.module.scss';
+
+.disabled.dropdownCtn {
+  @include setBtnDisabledStyles;
+}
+
+.dropdownCtn {
+  position: relative;
+  @include flexCenter;
+  justify-content: center;
+  padding-left: 14.73px;
+  border: 1px solid $white;
+  color: $white;
+  @include setFontSizeAndWeight(14px, 500);
+  @include setWidthHeight(96.603px, 36.545px);
+  cursor: pointer;
+  @media (max-width: 940px) {
+    @include setWidthHeight(80px, 31px);
+    padding-left: 5.7px;
+  }
+  @media (max-width: 690px) {
+    @include setWidthHeight(96.6px, 25px);
+    padding-left: 5.7px;
+  }
+  .downArrow {
+    position: absolute;
+    right: 9px;
+    top: 8px;
+    @media (max-width: 940px) {
+      right: 5px;
+      top: 5px;
+    }
+    @media (max-width: 690px) {
+      right: 13px;
+      top: 2px;
+    }
+  }
+  .dropdownHeader {
+    @include flexCenter;
+    padding-right: 20px;
+  }
+  .dropdownOptions {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 0 13px 0;
+    background-color: $lighterBlue;
+    width: 96.603px;
+    top: 35px;
+    left: -1px;
+    z-index: 999;
+    @media (max-width: 940px) {
+      left: -10px;
+    }
+    .dropdownOption {
+      @include flexCenter;
+      @include setWidthHeight(76px, 30px);
+    }
+    .dropdownOption.active {
+      color: $greenColor;
+      border: 1px solid $greenColor;
+    }
+  }
+}
+
+.dropdownCtn.roleDropdown,
+.dropdownCtn.roleInUserCardDropdown,
+.dropdownCtn.roleInAddUserModalDropDown {
+  margin: auto;
+  @include setWidthHeight(187px, 45px);
+  @media (max-width: 1400px) {
+    width: 166px;
+  }
+  .dropdownHeader {
+    padding-right: 23px;
+  }
+  .dropdownOptions {
+    width: 187px;
+    padding: 11px 0 14px 0;
+    align-items: center;
+    left: 0;
+    top: 44px;
+    @media (max-width: 1400px) {
+      width: 166px;
+    }
+  }
+  .dropdownOption {
+    @include setWidthHeight(unset, 30px);
+    padding: 0 17px 0 17px;
+    @media (max-width: 1400px) {
+      padding: 0 10px 0 10px;
+    }
+  }
+  .downArrow {
+    right: 8.5px;
+    top: 12px;
+  }
+}
+
+.dropdownCtn.inTransportsStepDropdown {
+  @include setWidthHeight(96.603px, 36.545px);
+}
+
+.dropdownCtn.inTransportCardStepDropdown {
+  @include setWidthHeight(89px, 37px);
+  .dropdownHeader {
+    padding-right: 28px;
+  }
+  .dropdownOptions {
+    width: 89px;
+    left: 0;
+    padding: 8px 7px 13px 7px;
+  }
+  .downArrow {
+    top: 9px;
+  }
+}
+
+.dropdownCtn.roleInUserCardDropdown {
+  width: 155px;
+  border: none;
+  padding-bottom: 6px;
+  .dropdownOptions {
+    width: 155px;
+    padding: 13px 0 23px 0;
+  }
+  .downArrow {
+    top: 11px;
+  }
+}
+
+.dropdownCtn.roleInAddUserModalDropdown {
+  font-size: 16px;
+  width: 430px;
+  height: 36.545px;
+  border: 1px solid $white;
+  margin-top: 11px;
+  justify-content: flex-start;
+  padding-left: 12px;
+  @media (max-width: 628px) {
+    width: 100%;
+  }
+  .dropdownOptions {
+    width: 431px;
+    padding: 13px 0 23px 0;
+    align-items: flex-start;
+    left: -2px;
+    top: 37px;
+    background-color: $darkBlue;
+    padding-left: 10px;
+    padding-right: 10px;
+    @media (max-width: 628px) {
+      width: 100%;
+    }
+    .dropdownOption {
+      @include setWidthHeight(100%, 30px);
+      justify-content: flex-start;
+      padding: 0 17px 0 17px;
+      @media (max-width: 628px) {
+      }
+    }
+  }
+  .downArrow {
+    right: 9px;
+    top: 8px;
+  }
+}

@@ -1,0 +1,22 @@
+@import '../../../styles/variables.module.scss';
+
+.downloadModal {
+  position: absolute;
+  width: 65px;
+  background: $lighterBlue;
+  z-index: 999;
+  top: 35px;
+  right: -19px;
+  padding: 7px;
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}
+
+.downloadModal.fromActiveCar {
+  right: unset;
+  top: 25px;
+  left: -24px;
+}

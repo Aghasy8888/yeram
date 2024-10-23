@@ -1,0 +1,49 @@
+@import '../../../../styles/variables.module.scss';
+
+.modalContainer {
+  @include modalContainerStyles;
+  .modalCustom {
+    @include modalCustomStyles(50%, 50%);
+    .addTransportModal {
+      @include actualModalStyles(526px);
+      padding: 38px 76px 43px;
+      @media (max-width: 540px) {
+        width: 315px;
+        padding: 38px 18px 43px;
+      }
+      .closeBtn {
+        @include closeBtnStyles(15.5px, 28px);
+      }
+      .title {
+        @include modalTitleStyles(540px);
+        margin-bottom: 13px;
+      }
+      .form {
+        @include modalFormStyles;
+        .error {
+          position: absolute;
+          color: $redColor;
+          font-size: 12px;
+          top: 57px;
+          left: 18px;
+          @media (max-width: 540px) {
+            left: 0;
+          }
+        }
+        label {
+          @include modalLabelStyles(28px, 20px, 540px);
+        }
+        input {
+          @include modalInputStyles(337.405px, 15px, 540px);
+        }
+        p {
+          text-align: center;
+          @include setTextStyles(20px, $white, 16px, 600);
+        }
+        .addTransportBtn {
+          @include addBtnStyles;
+        }
+      }
+    }
+  }
+}

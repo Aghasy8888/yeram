@@ -1,0 +1,11 @@
+.oneDot {
+  position: absolute;
+  top: 1px;
+  left: 0;
+  @media (max-width: 940px) {
+    top: 0;
+  }
+  @media (max-width: 690px) {
+    top: -14px;
+  }
+}

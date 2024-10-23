@@ -1,0 +1,79 @@
+@import '../../../styles/variables.module.scss';
+
+label.emailLabel {
+  margin-top: 24px !important;
+}
+
+.error {
+  position: absolute;
+  margin: 4px 0;
+  color: $redColor;
+  font-size: 12px;
+  font-weight: 500;
+  bottom: -20px;
+  left: 0;
+}
+
+.emailError {
+  @media (max-width: 628px) {
+    bottom: unset;
+    top: 50px;
+  }
+}
+
+input.withBorder {
+  color: $white;
+  @include setWidthHeight(623px, 36px);
+  border: 1px solid $white;
+  @include flexCenter;
+  justify-content: flex-start;
+  padding-left: 26px;
+  @media (max-width: 1750px) {
+    width: 500px;
+  }
+  @media (max-width: 1640px) {
+    width: 623px;
+  }
+  @media (max-width: 1400px) {
+    @include setWidthHeight(439.652px, 36px);
+  }
+  @media (max-width: 940px) {
+    width: 553.739px;
+  }
+  @media (max-width: 690px) {
+    width: 100%;
+    padding-left: 11px;
+  }
+}
+label.companyData {
+  align-self: center;
+  @media (max-width: 940px) {
+    max-width: 78px;
+  }
+  @media (max-width: 690px) {
+    align-self: flex-start;
+    margin-bottom: 9px;
+  }
+}
+
+input.nameInput {
+  text-transform: uppercase;
+}
+
+.errorAndInputCtn {
+  position: relative;
+}
+
+/* Targeting autofilled inputs in most browsers */
+input.withBorder:-webkit-autofill,
+input.withBorder:-webkit-autofill:hover,
+input.withBorder:-webkit-autofill:focus,
+input.withBorder:-webkit-autofill:active {
+  -webkit-text-fill-color: $white !important;
+  transition: background-color 5000s ease-in-out 0s; /* This line is to prevent background color change in Chrome */
+}
+
+/* For Firefox */
+input.withBorder:-moz-ui-valid {
+  color: $white !important;
+}

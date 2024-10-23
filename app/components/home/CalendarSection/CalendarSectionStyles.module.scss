@@ -1,0 +1,22 @@
+@import '../../../../styles/variables.module.scss';
+
+.calendarSection {
+  display: flex;
+  justify-content: center;
+  .dateSelection {
+    min-height: 247px;
+    position: relative;
+    .downArrowYearBtn {
+      top: 8px;
+      right: 38px;
+    }
+    .downArrowMonthBtn {
+      top: 7px;
+      left: 100px;
+    }
+    hr {
+      background: $borderColor;
+      margin-bottom: 7px;
+    }
+  }
+}

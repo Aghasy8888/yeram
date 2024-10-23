@@ -1,0 +1,1 @@
+export const COMPANY_IN_DETAILS = 'companyInDetails';

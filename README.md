@@ -1,9 +1,44 @@
-## Project: Yeram
+# Project: Yeram
 
 ## Overview
-I have created this project for transport companies. Each company can have an account where they can view analytics on passenger traffic for each of their vehicles, perform calculations, and watch or download videos from inside the vehicles. They can also download reports on passenger traffic in PDF, XLS, and CSV formats.
-The actions of obtaining reports about the vehicles, downloading files, authentication, and other actions were implemented by integrating with the backend according to the backend documentation.
 
-I developed this project using Next.js, SASS for styling, and Redux Toolkit for state management. I converted the designs from a Figma file. Unfortunately, I cannot share a link to the deployed project due to an agreement with the owner. 
+Yeram is a project I created from scratch, tailored for transport companies. It provides tools for analyzing passenger traffic, accessing vehicle-related data, and generating reports in various formats. The project seamlessly integrates with the backend to enable features such as authentication, data retrieval, and file downloads.
 
+## Features
 
+- Passenger traffic analysis for transport companies.
+- Access to detailed vehicle-related data.
+- Generate and download reports in multiple formats.
+- Backend integration for authentication and data operations.
+
+## Tech Stack
+
+- **Framework**: [Next.js](https://nextjs.org/)
+- **State Management**: [Redux Toolkit](https://redux-toolkit.js.org/)
+- **Styling**: [SASS](https://sass-lang.com/)
+- **Design Conversion**: Figma to React components
+
+## Development Notes
+
+- Created from scratch with full control over architecture and implementation.
+- Converted UI designs from a Figma file to functional components.
+- Followed best practices for state management using Redux Toolkit.
+
+## Deployment
+
+Due to an agreement with the project owner, a link to the deployed project cannot be shared.
+
+---
+
+### Acknowledgments
+
+Special thanks to the backend team for providing thorough documentation and support during integration.
+
+---
+
+### Contact
+
+If you have any questions or need more information about this project, feel free to reach out!
+
+- Email: aghasghazaryan8888@gmail.com
+- Telegram: [@Aghasy_8](https://t.me/Aghasy_8)

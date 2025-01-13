@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { RootState } from '@/redux/store';
 import {
+  addTransport,
   editTransport,
   getTransports,
   reportDownload,
@@ -135,6 +136,9 @@ const transportSlice = createSlice({
           }
         }
       )
+      .addCase(addTransport.fulfilled, (state) => {
+        state.loading = false;
+      })
       .addCase(
         getTransports.fulfilled,
         (state, { payload }: { payload: IGetTransportsPayload }) => {
@@ -144,6 +148,7 @@ const transportSlice = createSlice({
           const sortedTransports = sortTransportsByGosNumber(
             transports as ITransport[]
           );
+
           if (parsedData) {
             sortedTransports?.forEach((transport) => {
               if (parsedData?.transport.includes(transport.id)) {
@@ -170,6 +175,7 @@ const transportSlice = createSlice({
       .addMatcher(
         (action) =>
           [
+            addTransport.pending.type,
             getTransports.pending.type,
             reportTransportsInfo.pending.type,
             reportDownload.pending.type,
@@ -182,6 +188,7 @@ const transportSlice = createSlice({
       .addMatcher(
         (action) =>
           [
+            addTransport.rejected.type,
             getTransports.rejected.type,
             reportTransportsInfo.rejected.type,
             reportDownload.rejected.type,

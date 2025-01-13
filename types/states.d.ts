@@ -69,6 +69,7 @@ interface IVideoDefaultState {
   loading: boolean;
   videos: IVideoReport;
 }
+
 interface ITransportDefaultState {
   transports: ITransport[];
   loading: boolean;

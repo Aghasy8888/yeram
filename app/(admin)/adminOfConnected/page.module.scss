@@ -57,7 +57,7 @@
           }
         }
         .transportedCount {
-          color: #3dcb67;
+          color: $activeColor;
           text-align: center;
           @include setFontSizeAndWeight(26px, 800);
           @media (max-width: 1400px) {

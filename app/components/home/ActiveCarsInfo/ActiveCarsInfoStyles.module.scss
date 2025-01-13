@@ -34,6 +34,7 @@
     .carNumber {
       padding: 4px 10px 4px 10px;
       width: 164px; //120px
+      min-width: 160px;
       height: 25px;
       border: 1.303px solid $borderColor;
       color: $white;
@@ -45,7 +46,7 @@
     display: flex;
     gap: 18px;
     margin: 10px 0 15px 39px;
-    color: $greenColor;
+    color: $activeColor;
     @media (max-width: 1640px) {
       margin-left: 40px;
     }

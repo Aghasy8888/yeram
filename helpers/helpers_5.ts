@@ -232,8 +232,7 @@ export const getRoleDropDownData = (userRole: string, user: IUserInfo) => {
 
 export const focusBeforeTwoSpaces = (inputElement: HTMLInputElement) => {
   const regex = /\s\s/;
-  const match = inputElement.value.search(regex);
-
+  const match = inputElement.value.search(regex);  
   inputElement.focus();
 
   if (match !== -1) {

@@ -14,23 +14,34 @@ import {
 import useAddTransportModalEffects from '@/hooks/useAddTransportModalEffects';
 
 import styles from './AddTransportModalStyles.module.scss';
+import { useAppDispatch, useAppSelector } from '@/redux/hooks';
+import { selectUserRole } from '@/redux/features/auth/authSlice';
+import { SUPER_ADMIN } from '@/data/stepConstants';
+import idGenerator from '@/helpers/idGenerator';
+import { selectCompanyInDetails, selectOwnCompany } from '@/redux/features/company/companySlice';
+import { useRouter } from 'next/navigation';
+import { addTransport } from '@/redux/features/transport/transportService';
 
 const AddTransportModal = ({
   setModalIsOpen,
   gosNumber,
   setGosNumber,
 }: IAddTransportModalProps) => {
+  const dispatch = useAppDispatch();
+  const navigate = useRouter();
   const [inputs, setInputs] = useState<NodeListOf<HTMLInputElement> | []>([]);
   const [gosNumberError, setGosNumberError] = useState<string | null>(null);
+  const userRole = useAppSelector(selectUserRole);
+  const companyId = (useAppSelector(selectCompanyInDetails) as ICompany).id;
 
   useAddTransportModalEffects(inputs[3], setInputs);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setGosNumber(e.target.value.toUpperCase());
-    
-    if (!inputs[3]) return;    
-    
-    focusBeforeTwoSpaces(inputs[3]);
+
+    if (!inputs[inputs.length - 1]) return;
+
+    focusBeforeTwoSpaces(inputs[inputs.length - 1]);
   };
 
   const handleSubmit = async (e: FormEvent) => {
@@ -45,6 +56,20 @@ const AddTransportModal = ({
       );
 
       if (isValidGosNumber(gosNumber)) {
+        const id = String(idGenerator());
+
+        const transport: IAddTransportBody = {
+          gos_number: gosNumber,
+          id,
+          isactive: true,
+          company: companyId,
+          channels: 'CH1',
+          islock: true,
+          time_table: [],
+          confirmed: userRole === SUPER_ADMIN ? true : false,
+        };
+
+        dispatch(addTransport({ data: transport, navigate, dispatch }));
         setModalIsOpen(false);
         setGosNumber('');
       } else {

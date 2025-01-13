@@ -14,7 +14,7 @@
     border: 1px solid $lighterBlue;
   }
   input[type='radio']:hover + label {
-    color: $greenColor;
-    border: 1px solid $greenColor;
+    color: $activeColor;
+    border: 1px solid $activeColor;
   }
 }

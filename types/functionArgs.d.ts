@@ -8,10 +8,13 @@ interface IRegisterArgs {
   navigate: AppRouterInstance;
 }
 
-interface ISetUserRoleArgs {
-  data: ISetUserRoleBody;
+interface INavAndDispatch {
   navigate: AppRouterInstance;
   dispatch: AppDispatch;
+}
+
+interface ISetUserRoleArgs extends INavAndDispatch {
+  data: ISetUserRoleBody;
   username: string;
 }
 

@@ -17,10 +17,9 @@ const SingleOnOffButton = ({
   onChange,
 }: ISingleOnOffButtonProps) => {
   const page = useGetPage();
-  const disableDataInAdmin = info === DATA && page === 'adminOfConnected';
   const onChangeLocal = () => {
     if (onChange && checked !== undefined) {
-      onChange(checked, info);
+      onChange(info === DATA ? !checked : checked, info);
     }
   };
 
@@ -29,7 +28,7 @@ const SingleOnOffButton = ({
       <p className={styles.displayOrData}>{info}</p>
       <input
         type="checkbox"
-        disabled={isUser || disableDataInAdmin}
+        disabled={isUser}
         checked={checked}
         onChange={onChangeLocal}
       />

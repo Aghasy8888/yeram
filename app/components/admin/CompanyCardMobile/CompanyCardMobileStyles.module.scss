@@ -17,7 +17,7 @@
       align-items: flex-end;
       .transportedCtn {
         .transportedCount {
-          @include setTextStyles(20px, $greenColor, 26px, 800);
+          @include setTextStyles(20px, $activeColor, 26px, 800);
           margin-bottom: 8px;
         }
       }

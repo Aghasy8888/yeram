@@ -32,7 +32,7 @@
           color: $darkBlue;
         }
         .react-datepicker__month-option--selected_month {
-          background-color: $purple;
+          background-color: $green;
         }
       }
     }
@@ -45,7 +45,7 @@
           color: $darkBlue;
         }
         .react-datepicker__year-option--selected_year {
-          background-color: $purple;
+          background-color: $green;
         }
       }
     }
@@ -92,14 +92,14 @@
   .react-datepicker__day--keyboard-selected,
   .react-datepicker__day--in-range {
     background-color: $darkGreen;
-    color: $greenColor;
+    color: $activeColor;
     &:hover {
       background-color: $darkGreen;
     }
   }
   .react-datepicker__day--selected {
     background-color: $darkGreen;
-    color: $greenColor;
+    color: $activeColor;
   }
   .react-datepicker__day--in-range {
     &:hover {
@@ -202,7 +202,7 @@
       .react-datepicker__year-text--in-selecting-range
     ) {
     background: $darkGreen;
-    color: $greenColor;
+    color: $activeColor;
     border-radius: 0;
   }
 }

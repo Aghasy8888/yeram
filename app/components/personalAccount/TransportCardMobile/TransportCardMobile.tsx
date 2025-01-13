@@ -56,7 +56,7 @@ const TransportCardMobile = ({
             />
           </div>
           <OnOffButtons
-            dataChecked={Boolean(transport.islock)}
+            dataChecked={!Boolean(transport.islock)}
             displayChecked={transport.isactive}
             onChange={onDataOrDisplayClick}
             isUser={userRole === USER}

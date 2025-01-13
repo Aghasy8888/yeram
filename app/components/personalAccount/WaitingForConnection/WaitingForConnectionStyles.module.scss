@@ -10,11 +10,10 @@
   }
   .title {
     width: 414px;
-    position: absolute;
-    top: 40px;
+    margin-top: 40px;
     text-align: start;
     color: #fff;
-    border-bottom: 3px solid $purpleLighter;
+    border-bottom: 3px solid $greenLighter;
     padding: 20px 50px 20px 30px;
     @include setFontSizeAndWeight(26px, 600);
     @media (max-width: 1640px) {
@@ -27,5 +26,50 @@
       text-align: center;
       margin-bottom: 30px;
     }
+  }
+  .waitingTransport {
+    margin-top: 30px;
+    display: flex;
+    gap: 49px;
+    width: 504px;
+    margin-bottom: 12px;
+    @media (max-width: 690px) {
+      flex-wrap: wrap;
+      gap: 29px;
+      justify-content: center;
+      row-gap: 19px;
+      width: unset;
+      padding: 0;
+      margin-bottom: 44px;
+    }
+    .onOffBtn {
+      @include setWidthHeight(137px, 29px);
+      @include setFontSizeAndWeight(14px, 500);
+      border: 1px solid $white;
+      color: $white;
+    }
+    .gosNumber,
+    .connectionDate {
+      color: $white;
+      @include flexCenter;
+      @include setFontSizeAndWeight(14px, 600);
+    }
+    .connectionDate {
+      font-size: 16px;
+      width: 105px;
+      @media (max-width: 690px) {
+      }
+    }
+    .gosNumber {
+      width: 154px;
+    }
+  }
+  
+  .lastChild.waitingTransport {
+    margin-bottom: 0;
+  }
+  
+  .userVersion.waitingTransport {
+    gap: 28px;
   }
 }

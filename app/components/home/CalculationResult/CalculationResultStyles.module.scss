@@ -48,7 +48,7 @@
       grid-row: unset;
     }
     .incomeResult {
-      @include setTextStyles(8px, $greenColor, 28px, 600);
+      @include setTextStyles(8px, $activeColor, 28px, 600);
       width: 100%;
       @media (max-width: 1640px) {
         font-size: 24px;
@@ -65,7 +65,7 @@
   // }
 
   .result {
-    @include setTextStyles(15px, $greenColor, 22px, 600);
+    @include setTextStyles(15px, $activeColor, 22px, 600);
     width: 87px;
     @media (max-width: 1640px) {
       width: 85px;

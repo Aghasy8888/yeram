@@ -24,7 +24,10 @@ import useMediaWidth from '@/hooks/useMediaWidth';
 import stepOptions from '@/data/stepOptions';
 import useSearch from '@/hooks/useSearch';
 import { detailsClickHandler, setReportStepWrapper } from '@/helpers/helpers_5';
-import { selectActiveCompanies, selectCompanies } from '@/redux/features/company/companySlice';
+import {
+  selectActiveCompanies,
+  selectCompanies,
+} from '@/redux/features/company/companySlice';
 import { selectUserRole } from '@/redux/features/auth/authSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 
@@ -99,7 +102,7 @@ function AdminOfConnected() {
           navigate,
           requestBody,
           userRole: SUPER_ADMIN,
-          dispatch
+          dispatch,
         })
       );
     };
@@ -123,8 +126,12 @@ function AdminOfConnected() {
           </div>
         </td>
         <td className={`${styles.column} ${styles.control}`}>
-          <OnOffButtons onChange={onDataOrDisplayClick} dataChecked={true} displayChecked={company.isactive} />
-        </td>
+          <OnOffButtons
+            onChange={onDataOrDisplayClick}
+            dataChecked={!company.islock}
+            displayChecked={company.isactive}
+          />
+        </td>        
         <td className={`${styles.column} ${styles.spread}`}>
           <button
             className={styles.detailsBtn}

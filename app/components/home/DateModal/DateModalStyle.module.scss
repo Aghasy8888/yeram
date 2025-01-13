@@ -22,8 +22,8 @@
           height: 30px;
           border: 1px solid $borderColor;
           @media (max-width: 690px) {
-            border: 1px solid $greenColor;
-            color: $greenColor;
+            border: 1px solid $activeColor;
+            color: $activeColor;
           }
           color: $white;
           @include textShadow;

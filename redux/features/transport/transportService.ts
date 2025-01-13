@@ -11,7 +11,7 @@ import { handleDownload } from '@/helpers/helpers_4';
 import request from '@/helpers/request';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const apiUrl = process.env.YERAM_APP_API_URL;
+const apiUrl = process.env.STELLAX_APP_API_URL;
 
 export const getTransports = createAsyncThunk(
   'transport/getTransports',
@@ -81,7 +81,7 @@ export const reportDownload = createAsyncThunk(
       report_type,
       start,
       transport,
-      dispatch
+      dispatch,
     }: IReportDownloadInfoArgs,
     { rejectWithValue }
   ) => {
@@ -91,7 +91,12 @@ export const reportDownload = createAsyncThunk(
     const requestUrl = url + query;
 
     try {
-      const reportsToDownload = await request(dispatch, navigate, requestUrl, 'POST');
+      const reportsToDownload = await request(
+        dispatch,
+        navigate,
+        requestUrl,
+        'POST'
+      );
 
       switch (fileType) {
         case csvForRequest:
@@ -119,10 +124,15 @@ export const reportDownload = createAsyncThunk(
 export const editTransport = createAsyncThunk(
   'transport/editTransport',
   async (
-    { navigate, company_id, requestBody, transport_id, dispatch }: IEditTransportInfoArgs,
+    {
+      navigate,
+      company_id,
+      requestBody,
+      transport_id,
+      dispatch,
+    }: IEditTransportInfoArgs,
     { rejectWithValue }
   ) => {
-    
     try {
       const editedTransport: ITransportFromBack = await request(
         dispatch,
@@ -136,6 +146,33 @@ export const editTransport = createAsyncThunk(
     } catch (error) {
       console.log('Error: ', error);
       return rejectWithValue('Error occurred during editTransport.');
+    }
+  }
+);
+
+interface IAddTransportArgs extends INavAndDispatch {
+  data: IAddTransportBody;
+}
+
+export const addTransport = createAsyncThunk(
+  'auth/addTransport',
+  async (
+    { navigate, data, dispatch }: IAddTransportArgs,
+    { rejectWithValue }
+  ) => {
+    try {
+      const transport: ITransport = await request(
+        dispatch,
+        navigate,
+        `${apiUrl}/companies/${data.company}/transport/`,
+        'POST',
+        data
+      );
+
+      return { transport };
+    } catch (error) {
+      console.log('Error: ', error);
+      return rejectWithValue('Error occurred during addTransport.');
     }
   }
 );

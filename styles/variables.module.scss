@@ -1,15 +1,15 @@
 //colors
-$darkBlue: #0c122a;
-$purple: #8494cb;
-$white: #fff;
-$greenColor: #3dcb67;
+$darkBlue: #352922;
+$green: #90cb84;
+$white: #f0f0f0;
+$activeColor: #4caea6;
 $darkGreen: rgba(50, 166, 88, 0.15);
 $borderColor: rgba(255, 255, 255, 0.5);
 $redColor: red;
 $companyColor: rgba(255, 255, 255, 0.05);
 $lighterBlue: #181e35;
 $pinkColor: #721ab9;
-$purpleLighter: rgba(132, 148, 203, 0.5);
+$greenLighter: rgba(71, 242, 157, 0.5);
 
 //mixins
 
@@ -34,7 +34,7 @@ $purpleLighter: rgba(132, 148, 203, 0.5);
   }
 
   &::-webkit-scrollbar-thumb {
-    background-color: $purple;
+    background-color: $green;
     border-radius: 10px;
   }
 }
@@ -112,8 +112,8 @@ $purpleLighter: rgba(132, 148, 203, 0.5);
     height: 30px;
     border: 1px solid $borderColor;
     @media (max-width: 690px) {
-      border: 1px solid $greenColor;
-      color: $greenColor;
+      border: 1px solid $activeColor;
+      color: $activeColor;
     }
     color: $white;
     @include textShadow;
@@ -124,7 +124,7 @@ $purpleLighter: rgba(132, 148, 203, 0.5);
 //table mixins
 @mixin firstColumnStyles {
   width: 76px;
-  min-width: 76px;
+  min-width: 115px;
   padding: 15px 6px 18px 6px;
   color: $white;
   @include setFontSizeAndWeight(10px, 500);
@@ -138,7 +138,7 @@ $purpleLighter: rgba(132, 148, 203, 0.5);
   min-width: 44.6px;
   min-height: 45px;
   text-align: center;
-  color: $greenColor;
+  color: $activeColor;
   @include setFontSizeAndWeight(14px, 500);
   border: 1px solid $borderColor;
   border-bottom: none;
@@ -491,6 +491,6 @@ $purpleLighter: rgba(132, 148, 203, 0.5);
 }
 
 @mixin transportedCountStyles {
-  color: #3dcb67;
+  color: #ff9f00;
   @include setFontSizeAndWeight(26px, 800);
 }

@@ -29,7 +29,7 @@ const InfoDiagram = () => {
       {
         label: 'ЗАШЕДШИЕ',
         data: totalCameInOut.map((entry) => entry.entered),
-        backgroundColor: '#3dcb67',
+        backgroundColor: '#ff9f00',
       },
       {
         label: 'ВЫШЕДШИЕ',

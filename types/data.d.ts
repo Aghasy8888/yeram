@@ -31,12 +31,20 @@ interface IUserTableColumnClasses {
   connection: string;
 }
 
-interface ITransport {
+interface IAddTransportBody {
   gos_number: string;
   id: string;
+  isactive: boolean;
+  company: string;
+  channels: string;
+  islock: boolean;
+  time_table: ISchedule[];
+  confirmed: boolean;
+}
+
+interface ITransport extends IAddTransportBody {
   isActive: boolean;
   report?: reportDetails;
-  isactive: boolean;
 }
 
 interface ISchedule {
@@ -48,7 +56,7 @@ interface ITransportFromBack {
   channels: string;
   gos_number: string;
   id: string;
-  islock: number;
+  islock: boolean;
   isactive: boolean;
   time_table: ISchedule[];
   confirmed: boolean;
@@ -183,6 +191,10 @@ interface ICompanyUsersPayload {
   companyUsers: IUserInfo[];
 }
 
+interface IAddTransportPayload {
+  transport: ITransport;
+}
+
 interface IGetTransportsPayload {
   transports: ITransport[];
   parsedData?: IReportBody;
@@ -198,7 +210,7 @@ interface IReportTransportsPayload {
 
 interface IGetVideosPayload extends IGetVideosResponse {
   user: IUserInfo;
-} 
+}
 
 interface IEditTransportsPayload {
   editedTransport: ITransportFromBack;

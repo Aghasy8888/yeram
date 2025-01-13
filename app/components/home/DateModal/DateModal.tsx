@@ -13,7 +13,7 @@ import useDisableSteps from '@/hooks/useDisableSteps';
 import { setShortenedPeriodSelected } from '@/redux/features/other/otherSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { selectUserInfo } from '@/redux/features/auth/authSlice';
-import { selectSubmittedTransports, selectTransports } from '@/redux/features/transport/transportSlice';
+import { selectSubmittedTransports } from '@/redux/features/transport/transportSlice';
 
 import styles from './DateModalStyle.module.scss';
 

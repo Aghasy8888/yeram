@@ -165,13 +165,14 @@ interface IWaitingTransport {
 type TKeyboardEvent = KeyboardEvent<HTMLDivElement>;
 
 interface ICompany extends IEditCompanyBody {
-  transports: ITransportFromBack[];
+  transports: ITransport[];
   totalCameIns?: number;
 }
 
 interface IEditCompanyBody {
   id: string;
   isactive?: boolean;
+  islock?: boolean;
   name?: string;
   comment?: string;
   phone?: string;
@@ -200,8 +201,8 @@ interface ICompanyDefaultState extends ICompanyActionAndState {
   loading: boolean;
   activeCompanies: ICompany[];
   unActiveCompanies: ICompany[];
-  activeTransports: ITransportFromBack[];
-  unActiveTransports: ITransportFromBack[];
+  confirmedTransports: ITransport[];
+  unActiveTransports: ITransport[];
 }
 
 type TDateForRequest = {

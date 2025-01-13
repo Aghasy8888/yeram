@@ -3,6 +3,7 @@ import { getCompanyTotalReports } from '@/helpers/helpers_5';
 import { selectUserRole } from '@/redux/features/auth/authSlice';
 import { getCompanies } from '@/redux/features/company/companyService';
 import { selectCompanies } from '@/redux/features/company/companySlice';
+import { setTransportLoading } from '@/redux/features/transport/transportSlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -16,6 +17,7 @@ const useAdminEffect = () => {
 
   useEffect(() => {
     dispatch(getCompanies({ navigate, dispatch }));
+    dispatch(setTransportLoading(false));
   }, []);
 
   useEffect(() => {

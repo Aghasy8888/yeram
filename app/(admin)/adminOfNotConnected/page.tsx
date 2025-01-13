@@ -81,7 +81,7 @@ function AdminOfNotConnected() {
     setDetailsModalIsOpen(true);
 
     setDetailsModal(() => ({
-      [company?.id]: true,
+      [company?.id as string]: true,
     }));
   };
 

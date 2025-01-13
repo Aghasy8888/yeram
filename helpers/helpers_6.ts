@@ -76,12 +76,9 @@ export const getFullNameParts = (fullName: string) => {
   };
 };
 
-export const getDisplayOrDataEditRqBody = (
-  info: string,
-  checked: boolean
-) => {
+export const getDisplayOrDataEditRqBody = (info: string, checked: boolean) => {
   const editingKey = info === DISPLAY ? 'isactive' : 'islock';
-  const editingValue = info === DISPLAY ? !checked : checked ? 0 : 1;
+  const editingValue = !checked;
 
   return {
     [editingKey]: editingValue,

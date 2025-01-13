@@ -27,15 +27,15 @@
         gap: 4px;
       }
       height: 40px;
-      border: 1px solid $purple;
-      color: $purple;
+      border: 1px solid $green;
+      color: $green;
       .gosNumberCtn {
         @include flexCenter;
         width: inherit;
         h3 {
           @include setFontSizeAndWeight(18px, 600);
           @media (max-width: 1640px) {
-            font-size: 13px;
+            font-size: 11px;
           }
           color: $borderColor;
         }
@@ -54,7 +54,7 @@
           color: $white;
           @include setFontSizeAndWeight(18px, 600);
           @media (max-width: 1640px) {
-            font-size: 13px;
+            font-size: 11px;
           }
         }
       }

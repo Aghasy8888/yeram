@@ -5,7 +5,7 @@ import { AppDispatch } from '@/redux/store';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
-const apiUrl = process.env.YERAM_APP_API_URL;
+const apiUrl = process.env.STELLAX_APP_API_URL;
 
 export const register = createAsyncThunk(
   'auth/register',
@@ -87,10 +87,8 @@ export interface IAddUserBody {
   middle_name?: string | null;
 }
 
-interface IAddUserArgs {
+interface IAddUserArgs extends INavAndDispatch {
   data: IAddUserBody;
-  navigate: AppRouterInstance;
-  dispatch: AppDispatch;
 }
 
 export const addUser = createAsyncThunk(

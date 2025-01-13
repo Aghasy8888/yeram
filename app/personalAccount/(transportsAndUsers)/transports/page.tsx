@@ -31,7 +31,7 @@ import {
   getScheduleForShow,
 } from '@/helpers/helpers_6';
 import {
-  selectActiveTransports,
+  selectConfirmedTransports,
   selectCompanyInDetails,
 } from '@/redux/features/company/companySlice';
 import { useAppDispatch, useAppSelector } from '@/redux/hooks';
@@ -56,8 +56,8 @@ function Transports() {
   const lessThan_1640_Screen = useMediaWidth(windowWidth <= 1640);
   const [gosNumber, setGosNumber] = useState('');
   const showTransportSpinner = useAppSelector(selectTransportLoading);
-  const activeTransports: ITransportFromBack[] | [] = useAppSelector(
-    selectActiveTransports
+  const confirmedTransports: ITransportFromBack[] | [] = useAppSelector(
+    selectConfirmedTransports
   );
   const companyInDetails: ICompany = useAppSelector(
     selectCompanyInDetails
@@ -67,9 +67,9 @@ function Transports() {
 
   const [transportsToShow, setTransportsToShow] = useState<
     ITransportFromBack[] | []
-  >(activeTransports);
+  >(confirmedTransports);
 
-  useSearch(setTransportsToShow, activeTransports as [], 'gos_number');
+  useSearch(setTransportsToShow, confirmedTransports as [], 'gos_number');
 
   useGetTransportReports();
   useUpdateLocalStorage();
@@ -111,13 +111,13 @@ function Transports() {
       const requestBody = getDisplayOrDataEditRqBody(
         info,
         checked
-      );
+      );      
 
       dispatch(
         editTransport({
           dispatch,
           navigate,
-          company_id: companyInDetails.id,
+          company_id: companyInDetails.id as string,
           transport_id: transport.id,
           requestBody,
         })
@@ -176,7 +176,7 @@ function Transports() {
           }`}
         >
           <OnOffButtons
-            dataChecked={Boolean(transport.islock)}
+            dataChecked={!Boolean(transport.islock)}
             displayChecked={transport.isactive}
             onChange={onDataOrDisplayClick}
             name="Transports"

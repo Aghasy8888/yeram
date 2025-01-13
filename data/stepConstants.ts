@@ -44,7 +44,7 @@ export const INCOME = 'income';
 export const USER_MANAGEMENT = 'USER_MANAGEMENT';
 export const TRANSPORT_MANAGEMENT = 'TRANSPORT_MANAGEMENT';
 
-export const GREEN_COLOR = '#3DCB67';
+export const GREEN_COLOR = '#4caea6';
 export const WHITE_COLOR = 'white';
 export const NONE = 'none';
 

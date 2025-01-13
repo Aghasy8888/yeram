@@ -1,11 +1,14 @@
 import request from '@/helpers/request';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-const apiUrl = process.env.YERAM_APP_API_URL;
+const apiUrl = process.env.STELLAX_APP_API_URL;
 
 export const getOwnCompany = createAsyncThunk(
   'company/getOwnCompany',
-  async ({ companyId, navigate, dispatch }: IGetOwnCompanyArgs, { rejectWithValue }) => {
+  async (
+    { companyId, navigate, dispatch }: IGetOwnCompanyArgs,
+    { rejectWithValue }
+  ) => {
     try {
       const ownCompany: ICompany = await request(
         dispatch,
@@ -21,13 +24,11 @@ export const getOwnCompany = createAsyncThunk(
   }
 );
 
-interface IGetCompaniesArgs extends INavigateArg, IDispatchArg {
-
-}
+interface IGetCompaniesArgs extends INavigateArg, IDispatchArg {}
 
 export const getCompanies = createAsyncThunk(
   'company/getCompanies',
-  async ({ navigate, dispatch}: IGetCompaniesArgs, { rejectWithValue }) => {
+  async ({ navigate, dispatch }: IGetCompaniesArgs, { rejectWithValue }) => {
     try {
       const companies: ICompany[] = await request(
         dispatch,
@@ -50,17 +51,28 @@ export const editCompany = createAsyncThunk(
     { rejectWithValue }
   ) => {
     localStorage.setItem('editCompanyRequestBody', JSON.stringify(requestBody));
+    let editedCompany: ICompany = { id: '', transports: [] };
+    const isLockAction = Object.keys(requestBody).includes('islock');
+    const actionType = requestBody.islock ? 'unlock' : 'lock';
 
     try {
-      const editedCompany: ICompany = await request(
-        dispatch,
-        navigate,
-        `${apiUrl}/companies/${requestBody.id}`,
-        'PATCH',
-        requestBody
-      );
+      if (isLockAction) {
+        editedCompany = await request(
+          dispatch,
+          navigate,
+          `${apiUrl}/companies/${requestBody.id}/transport/${actionType}/`
+        );
+      } else {
+        editedCompany = await request(
+          dispatch,
+          navigate,
+          `${apiUrl}/companies/${requestBody.id}`,
+          'PATCH',
+          requestBody
+        );
+      }
 
-      if (!editedCompany.phone?.includes('+7')) {
+      if (requestBody.phone && !editedCompany.phone?.includes('+7')) {
         throw new Error('Make sure you enter a valid phone number');
       }
 

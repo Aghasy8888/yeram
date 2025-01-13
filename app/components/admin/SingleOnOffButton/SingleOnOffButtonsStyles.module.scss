@@ -59,7 +59,7 @@
   }
 
   input:checked + .slider {
-    border: 2px solid $greenColor;
+    border: 2px solid $activeColor;
   }
 
   input:focus + .slider {
@@ -92,6 +92,6 @@
     border: $borderColor 2px solid;
   }
   input:checked + .slider.round:before {
-    border: $greenColor 2px solid;
+    border: $activeColor 2px solid;
   }
 }

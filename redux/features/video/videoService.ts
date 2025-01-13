@@ -2,7 +2,7 @@ import request from '@/helpers/request';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { AppRouterInstance } from 'next/dist/shared/lib/app-router-context.shared-runtime';
 
-const apiUrl = process.env.YERAM_APP_API_URL;
+const apiUrl = process.env.STELLAX_APP_API_URL;
 
 interface IGetVideosInfoArgs extends IDispatchArg {
   navigate: AppRouterInstance;

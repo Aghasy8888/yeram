@@ -67,7 +67,7 @@ const CompanyCardMobile = ({
               </div>
               <OnOffButtons
                 onChange={onDataOrDisplayClick}
-                dataChecked={true}
+                dataChecked={!company.islock}
                 displayChecked={company.isactive}
               />
             </div>

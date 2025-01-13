@@ -4,7 +4,7 @@ import redirect from './redirect';
 import { AppDispatch } from '@/redux/store';
 import { resetAllState } from '@/redux/features/globalActions';
 
-const apiUrl = process.env.YERAM_APP_API_URL;
+const apiUrl = process.env.STELLAX_APP_API_URL;
 
 export function checkLoginStatus() {
   const token = localStorage.getItem('token');

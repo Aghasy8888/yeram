@@ -21,8 +21,8 @@ ul {
     }
   }
   li.selected {
-    border: 2px solid $greenColor;
-    color: $greenColor;
+    border: 2px solid $activeColor;
+    color: $activeColor;
   }
   li.next,
   li.previous {

@@ -1,5 +1,5 @@
 import { search } from '@/helpers/helpers_5';
-import { selectActiveTransports } from '@/redux/features/company/companySlice';
+import { selectConfirmedTransports } from '@/redux/features/company/companySlice';
 import { selectSearchText } from '@/redux/features/other/otherSlice';
 import { useAppSelector } from '@/redux/hooks';
 import { useEffect } from 'react';
@@ -11,7 +11,7 @@ const useSearch = (
   searchCallBack: TSearchCallBack = search
 ) => {
   const searchText = useAppSelector(selectSearchText);
-  const activeTransports: ITransportFromBack[] | [] = useAppSelector(selectActiveTransports);
+  const confirmedTransports: ITransportFromBack[] | [] = useAppSelector(selectConfirmedTransports);
 
   useEffect(() => {
     if (!searchText) {
@@ -24,7 +24,7 @@ const useSearch = (
     });
 
     setObjectsToShow(companiesToShow);
-  }, [searchText, JSON.stringify(objects), JSON.stringify(activeTransports)]);
+  }, [searchText, JSON.stringify(objects), JSON.stringify(confirmedTransports)]);
 };
 
 export default useSearch;

@@ -53,8 +53,8 @@
       @include setWidthHeight(76px, 30px);
     }
     .dropdownOption.active {
-      color: $greenColor;
-      border: 1px solid $greenColor;
+      color: $activeColor;
+      border: 1px solid $activeColor;
     }
   }
 }

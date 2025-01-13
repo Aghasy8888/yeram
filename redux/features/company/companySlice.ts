@@ -12,6 +12,7 @@ import {
   SUPER_ADMIN,
 } from '@/data/stepConstants';
 import {
+  addTransport,
   editTransport,
   reportTransportsInfo,
 } from '../transport/transportService';
@@ -25,7 +26,7 @@ const initialState: ICompanyDefaultState = {
   activeCompanies: [],
   unActiveCompanies: [],
   companyInDetails: null,
-  activeTransports: [],
+  confirmedTransports: [],
   unActiveTransports: [],
   ownCompany: {},
   companyUsers: [],
@@ -45,16 +46,18 @@ const companySlice = createSlice({
         companyInDetails = state.ownCompany as ICompany;
       }
 
-      const activeTransports = (companyInDetails as ICompany)?.transports;
+      const activeTransports = (
+        companyInDetails as ICompany
+      )?.transports?.filter((t) => t.confirmed);
       // const unActiveTransports = companyInDetails?.transports?.filter(
       //   (transport) => !transport.isactive
       // );
 
       state.loading = false;
       state.companyInDetails = companyInDetails;
-      state.activeTransports = activeTransports
+      state.confirmedTransports = activeTransports
         ? activeTransports
-        : state.activeTransports;
+        : state.confirmedTransports;
       //   state.unActiveTransports = unActiveTransports
       //     ? unActiveTransports
       //     : state.unActiveTransports;
@@ -67,22 +70,23 @@ const companySlice = createSlice({
         editTransport.fulfilled,
         (state, { payload }: { payload: IEditTransportsPayload }) => {
           const {
-            editedTransport: { time_table, isactive, islock, id },
+            editedTransport: { time_table, isactive, islock, id, confirmed },
           } = payload;
 
-          const transportToEditIndex = state.activeTransports.findIndex(
+          const transportToEditIndex = state.confirmedTransports.findIndex(
             (transport) => transport?.id === id
           );
 
           if (transportToEditIndex !== -1) {
-            const updatedTransports = state.activeTransports.map(
+            const updatedTransports = state.confirmedTransports.map(
               (transport, index) => {
                 if (index === transportToEditIndex) {
-                  const updatedTransport: ITransportFromBack = {
+                  const updatedTransport: ITransport = {
                     ...transport,
                     time_table,
                     isactive,
                     islock,
+                    confirmed
                   };
 
                   return updatedTransport;
@@ -98,9 +102,10 @@ const companySlice = createSlice({
             if (targetTransport) {
               targetTransport.isactive = isactive;
               targetTransport.islock = islock;
+              targetTransport.confirmed = confirmed;
             }
 
-            state.activeTransports = updatedTransports;
+            state.confirmedTransports = updatedTransports;
           }
         }
       )
@@ -129,15 +134,16 @@ const companySlice = createSlice({
                   transports: updatedTransports,
                 };
 
-                const activeTransports = companyInDetails?.transports;
+                const activeTransports = (
+                  companyInDetails as ICompany
+                )?.transports?.filter((t) => t.confirmed);
 
                 state.loading = false;
                 state.companyInDetails = {
                   ...state.companyInDetails,
                   transports: updatedTransports,
                 };
-                state.activeTransports =
-                  activeTransports as ITransportFromBack[];
+                state.confirmedTransports = activeTransports as ITransport[];
               }
               break;
             case ADMIN_PAGE:
@@ -183,12 +189,36 @@ const companySlice = createSlice({
             const companyToEditIndex = state.activeCompanies.findIndex(
               (c) => c.id === editedCompany.id
             );
+            const companyToEditIndexInAll = state.companies.findIndex(
+              (c) => c.id === editedCompany.id
+            );
             state.activeCompanies[companyToEditIndex] = editedCompany;
+            state.companies[companyToEditIndexInAll] = editedCompany;
           }
 
           state.loading = false;
           state.companyInDetails = editedCompany;
           state.ownCompany = ownCompany;
+        }
+      )
+      .addCase(
+        addTransport.fulfilled,
+        (
+          state,
+          { payload: { transport } }: { payload: IAddTransportPayload }
+        ) => {
+          console.log('transport:', transport);
+          if (state.companyInDetails) {
+            (state.companyInDetails as ICompany).transports = [
+              ...(state.companyInDetails as ICompany).transports,
+              transport,
+            ];
+            state.confirmedTransports = (
+              state.companyInDetails as ICompany
+            ).transports.filter((t) => t.confirmed);
+          }
+
+          state.loading = false;
         }
       )
       .addCase(
@@ -258,8 +288,7 @@ const companySlice = createSlice({
   },
 });
 
-export const { setCompanyInDetails } =
-  companySlice.actions;
+export const { setCompanyInDetails } = companySlice.actions;
 
 export const selectCompanyLoading = (state: RootState) =>
   state.companyReducer.loading;
@@ -267,8 +296,8 @@ export const selectCompanyInDetails = (state: RootState) =>
   state.companyReducer.companyInDetails;
 export const selectCompanies = (state: RootState) =>
   state.companyReducer.companies;
-export const selectActiveTransports = (state: RootState) =>
-  state.companyReducer.activeTransports;
+export const selectConfirmedTransports = (state: RootState) =>
+  state.companyReducer.confirmedTransports;
 export const selectCompanyUsers = (state: RootState) =>
   state.companyReducer.companyUsers;
 export const selectOwnCompany = (state: RootState) =>

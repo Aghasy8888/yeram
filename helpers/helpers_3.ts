@@ -63,7 +63,7 @@ export function sumReportDataEntries(
 }
 
 export const sortReportData = (reportData: IReportEntry[]): IReportEntry[] => {
-  return reportData.sort((a, b) => {
+  return [...reportData].sort((a, b) => {
     const timeA = new Date(a.time).getTime();
     const timeB = new Date(b.time).getTime();
     return timeA - timeB;

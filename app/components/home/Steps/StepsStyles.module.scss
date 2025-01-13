@@ -23,8 +23,8 @@
         display: none;
       }
       input[type='radio']:checked + label {
-        color: $greenColor;
-        border: 1px solid $greenColor;
+        color: $activeColor;
+        border: 1px solid $activeColor;
       }
       input[type='radio']:disabled + label {
         color: gray;

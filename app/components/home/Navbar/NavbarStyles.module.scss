@@ -28,7 +28,7 @@
       margin-top: 13px;
       border: none;
       height: 1px;
-      background-color: $purpleLighter;
+      background-color: $greenLighter;
       @media (max-width: 690px) {
         margin-bottom: 13px;
       }
@@ -69,7 +69,7 @@
           font-size: 16px;
         }
         .activeLink {
-          color: $greenColor;
+          color: $activeColor;
         }
       }
       h1.link.active {
@@ -79,7 +79,7 @@
           position: absolute;
           width: 247px;
           height: 3px;
-          background-color: rgba(132, 148, 203, 0.5);
+          background-color: $greenLighter;
           left: -8px;
           top: 42px;
           @media (max-width: 1640px) {

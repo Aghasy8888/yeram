@@ -1,0 +1,31 @@
+<svg width="250" height="48" viewBox="0 0 250 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="f1" x="-20%" y="-20%" width="150%" height="150%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur"/>
+      <feOffset in="blur" dx="2" dy="2" result="offsetblur"/>
+      <feFlood flood-color="rgba(0,0,0,0.5)" result="color"/>
+      <feComposite in2="offsetblur" operator="in"/>
+      <feComposite in2="SourceAlpha" operator="in" result="shadow"/>
+      <feComposite in="SourceGraphic" in2="shadow" operator="over"/>
+    </filter>
+    
+    <!-- Gradient for logo -->
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color: #6a11cb; stop-opacity: 1" />
+      <stop offset="100%" style="stop-color: #2575fc; stop-opacity: 1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Complex geometric logo -->
+  <g fill="url(#grad1)">
+    <!-- Hexagon -->
+    <polygon points="10,16 15,8 20,8 25,16 20,24 15,24" />
+    
+    <!-- Inner Circles -->
+    <circle cx="15" cy="16" r="4" fill="white" />
+    <circle cx="20" cy="24" r="4" fill="white" />
+  </g>
+  
+  <!-- "Yeram" text with shadow effect -->
+  <text x="40" y="40" font-family="Georgia, serif" font-size="40" fill="white" filter="url(#f1)">Yeram</text>
+</svg>

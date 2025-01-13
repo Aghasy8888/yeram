@@ -15,7 +15,7 @@
       }
     }
     .totalTransportedCount {
-      @include setTextStyles(19px, $greenColor, 40px, 800);
+      @include setTextStyles(19px, $activeColor, 40px, 800);
       text-transform: uppercase;
       @media (max-width: 1640px) {
         margin-top: 13px;
@@ -29,11 +29,11 @@
       }
     }
     .entered {
-      @include setTextStyles(-5px, $greenColor, 10px, 600);
+      @include setTextStyles(-5px, $activeColor, 10px, 600);
       text-transform: uppercase;
     }
     .noDataTryAgain {
-      @include setTextStyles(5px, $greenColor, 10px, 600);
+      @include setTextStyles(5px, $activeColor, 10px, 600);
       margin-right: 15px;
     }
   }
